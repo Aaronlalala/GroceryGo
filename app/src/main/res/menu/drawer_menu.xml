@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+<!--    Make sure can only select one item in this group-->
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_driver_post"
+            android:icon="@drawable/ic_driver_post"
+            android:title="Driver Post"/>
+        <item android:id="@+id/nav_request_post"
+            android:icon="@drawable/ic_request_post"
+            android:title="Request Post"/>
+        <item android:id="@+id/nav_message"
+            android:icon="@drawable/ic_message"
+            android:title="Message"/>
+        <item android:id="@+id/nav_history"
+            android:icon="@drawable/ic_history"
+            android:title="History"/>
+        <item android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile"/>
+        <item android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="Setting"/>
+    </group>
+
+    <item android:title="Safety">
+        <menu>
+            <item android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="Share"/>
+        </menu>
+    </item>
+
+</menu>
