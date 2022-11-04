@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="pure_black">#FF161823</color>
+    <color name="sub_black">#99161823</color>
+    <color name="BGInput">#0D161823</color>
+    <color name="dan_black">#4D161823</color>
+    <color name="text_link">#FF04498D</color>
+    <color name="confirm_btn">#FFFE2C55</color>
+    <color name="not_confirm_btn">#60FE2C55</color>
+    <color name="hint_background">#00000000</color>
+    <color name="hint_text_color">#DD01598D</color>
+    <color name="search_border">#60038AC5</color>
+    <color name="Primary">#FFFE2C55</color>
 </resources>

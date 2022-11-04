@@ -1,6 +1,42 @@
 <resources>
-    <string name="app_name">GroceryGo</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="app_name">闪刀姬</string>
+    <string name="login_title">Login in for more Content!</string>
+    <string name="login_sub_title">By using Grocery Go app you agree to our privacy policy</string>
+    <string name="enter_account">please enter your account</string>
+    <string name="account">Account:</string>
+    <string name="password">Password:</string>
+    <string name="enter_password">please enter your password</string>
+    <string name="go_to_register">Open an Account </string>
+    <string name="login">Sign In</string>
+    <string name="welcome_register">Welcome to Sign Up</string>
+    <string name="register">Sign Up</string>
+    <string name="confirm_password">please confirm your password</string>
+    <string name="confirm_password_title">Confirm:</string>
+    <string name="my_pub">我的发帖</string>
+    <string name="introduce_yourself">介绍一下自己吧</string>
+    <string name="my_ans">我的发言</string>
+    <string name="my_res">收到回复</string>
+    <string name="recent_view">最近浏览</string>
+    <string name="comment_hint">这些评论亮了</string>
+    <string name="digg_desc">\"点赞 \"</string>
+    <string name="dismiss">取消</string>
+    <string name="pub">发布</string>
+    <string name="enter_title">请输入您的标题</string>
+    <string name="pub_hint">温馨提示, 发帖需遵守以下规则</string>
+    <string name="enter_your_content">输入你的内容～</string>
+    <string name="query_hint">请输入相关帖子信息</string>
+    <string name="digg_content">点赞</string>
+    <string name="comment">查看评论</string>
+    <string name="item_hint">· · · ·</string>
+    <string name="content_feedback">对该内容的反馈:</string>
+    <string name="not_interested">不感兴趣:</string>
+    <string name="hide_author">不看该作者</string>
+    <string name="reduce_rec">减少相似内容推荐</string>
+    <string name="pub_feedback">内容反馈:</string>
+    <string name="same_content">内容重复</string>
+    <string name="call">举报</string>
+    <string name="bad_content">内容质量差</string>
+    <string name="reply">回复</string>
+    <string name="all_reply">全部回复</string>
+    <string name="my_msg">我的消息</string>
 </resources>
