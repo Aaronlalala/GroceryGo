@@ -2,10 +2,107 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="ONGOING"
-        android:gravity="center"
-        />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_arrow_back"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
+                style="@style/Widget.AppCompat.Button.Borderless"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:gravity="center"
+                android:text="Journey Details"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:gravity="center"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Distance to the driver:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Distance to the destination:"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_launcher"/>
+            <TextView
+                android:id="@+id/user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User ID"
+                android:layout_toRightOf="@+id/avatar"
+                android:textSize="20dp"
+                android:layout_marginTop="40dp"
+                />
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Verified"
+                android:layout_toRightOf="@+id/user_id"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Driver License"
+                android:layout_toRightOf="@id/user_id"
+                android:layout_below="@id/email"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
