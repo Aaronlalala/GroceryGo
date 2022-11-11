@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 //        toggle.syncState();
     }
 
+    // Layout and handler functions for bottom tab
     private  void setBottomTabStyle() {
         mBottomTabLayout.addTab(mBottomTabLayout.newTab().setCustomView(generateTabStyle(BOTTOM_HOMEPAGE_BUTTON)));
         mBottomTabLayout.addTab(mBottomTabLayout.newTab().setCustomView(generateTabStyle(BOTTOM_ONGOING_BUTTON)));
@@ -83,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 if (tab != null && tab.getCustomView() != null && onBottomTabSelected(tab.getPosition())) {
@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 //        mBottomTabLayout.getTabAt(BOTTOM_HOMEPAGE_BUTTON).select();
     }
 
+    // Helper function to generate default tab icon
     private View generateTabStyle(int position) {
         View view = LayoutInflater.from(this).inflate(R.layout.tabitem_layout, null);
         ImageView img = view.findViewById(R.id.tab_icon);
@@ -160,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         curPosition = position;
         return true;
     }
-
+    // Method to attach fragment to the mainActivity
     private void attachFragment(String tag) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
