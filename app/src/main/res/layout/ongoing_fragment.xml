@@ -32,7 +32,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="230dp"
             android:orientation="vertical"
             android:gravity="center">
 
@@ -51,21 +51,28 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Distance to the driver:"/>
+                android:text="Distance to the driver:"
+                android:layout_marginLeft="10dp"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Distance to the destination:"/>
+                android:layout_marginTop="20dp"
+                android:text="Distance to the destination:"
+                android:layout_marginLeft="10dp"
+                />
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="150dp">
             <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_launcher"/>
+                android:src="@drawable/ic_launcher"
+                android:layout_marginLeft="10dp"
+                />
             <TextView
                 android:id="@+id/user_id"
                 android:layout_width="wrap_content"
@@ -74,6 +81,7 @@
                 android:layout_toRightOf="@+id/avatar"
                 android:textSize="20dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
                 />
             <TextView
                 android:id="@+id/email"
@@ -96,10 +104,77 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 />
-
+            <TextView
+                android:id="@+id/rate_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rate: "
+                android:textSize="18dp"
+                android:layout_below="@+id/avatar"
+                android:layout_marginLeft="10dp"
+                />
+            <RatingBar
+                android:id="@+id/rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/rate_text"
+                android:layout_below="@+id/avatar"
+                android:layout_marginTop="-15dp"
+                android:layout_marginLeft="-50dp"
+                android:layout_marginRight="-10dp"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:numStars="5"
+                android:rating="4.5"
+                android:stepSize="0.5"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comment_underline"
+                android:textAllCaps="false"
+                android:layout_toRightOf="@id/rating_bar"
+                android:layout_below="@id/avatar"
+                android:layout_marginTop="-5dp"
+                android:padding="0dp"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="@color/black"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                />
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Driver"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rate Driver"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:backgroundTint="#e5e5e5"
+                />
 
+        </LinearLayout>
 
     </LinearLayout>
 
