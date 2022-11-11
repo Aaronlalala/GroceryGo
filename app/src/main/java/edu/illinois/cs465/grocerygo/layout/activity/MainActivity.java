@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_layout);
-        mBottomTabLayout = findViewById(R.id.bottom_tab);
-        setBottomTabStyle();
-        attachFragment(POST_FRAGMENT_TAG);
+        initView();
 //        setContentView(R.layout.activity_main);
 //
 //        Toolbar toolbar = findViewById(R.id.toolbar);
@@ -55,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
 //                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 //        drawer.addDrawerListener(toggle);
 //        toggle.syncState();
+    }
+
+    private void initView() {
+        mBottomTabLayout = findViewById(R.id.bottom_tab);
+        setBottomTabStyle();
+        attachFragment(POST_FRAGMENT_TAG);
+        ImageView postView = findViewById(R.id.post);
+        postView.setOnClickListener(view -> {
+            Intent intent = new Intent(this, PostActivity.class);
+            this.startActivity(intent);
+        });
     }
 
     private  void setBottomTabStyle() {
