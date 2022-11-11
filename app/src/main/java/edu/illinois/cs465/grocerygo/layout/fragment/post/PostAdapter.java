@@ -67,6 +67,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     public void
     onBindViewHolder(PostViewHolder viewHolder, final int position)
     {
+        viewHolder.theProfilePic.setImageResource(postList.get(position).imageId);
         viewHolder.theName.setText(postList.get(position).name);
         viewHolder.theTime.setText(postList.get(position).time);
         viewHolder.theRemark.setText(postList.get(position).remark);

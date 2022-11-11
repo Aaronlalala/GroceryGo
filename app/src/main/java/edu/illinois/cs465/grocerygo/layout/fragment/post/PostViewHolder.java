@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import edu.illinois.cs465.grocerygo.R;
 
 public class PostViewHolder extends RecyclerView.ViewHolder{
+    public ImageView theProfilePic;
     public TextView theName;
     public Button theTime;
     public TextView theRemark;
@@ -22,6 +24,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder{
     public PostViewHolder(View v)
     {
         super(v);
+        theProfilePic = (ImageView)v.findViewById(R.id.theProfilePic);
         theName = (TextView)v.findViewById(R.id.theName);
         theTime = (Button) v.findViewById(R.id.theTime);
         theRemark = (TextView)v.findViewById(R.id.theRemark);

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -45,8 +46,9 @@ public class PostFragment extends Fragment {
 
     private void initDataset() {
         this.postList = new ArrayList<>();
-        PostData pd2 = new PostData("jake", "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.9 m");
-        PostData pd = new PostData("iris", "11:00 am Oct. 23rd", "I want somebody to join me", "Walmart", " 3.3 m");
+        //PostData pd2 = new PostData(R.drawable.girl, "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.9 m");
+        PostData pd2 = new PostData(R.drawable.man, "Jake", "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.3 m");
+        PostData pd = new PostData(R.drawable.girl, "iris", "11:00 am Oct. 23rd", "I want somebody to join me", "Walmart", " 3.3 m");
         this.postList.add(pd2);
         this.postList.add(pd);
     }

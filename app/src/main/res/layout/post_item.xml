@@ -13,7 +13,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/ProfilePic"
+                android:id="@+id/theProfilePic"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentTop="true"
@@ -26,7 +26,7 @@
                 android:id="@+id/theName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ProfilePic"
+                android:layout_below="@+id/theProfilePic"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:text="Lucy"
