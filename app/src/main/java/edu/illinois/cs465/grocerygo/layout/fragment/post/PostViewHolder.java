@@ -1,6 +1,7 @@
 package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,11 @@ public class PostViewHolder extends RecyclerView.ViewHolder{
 //               //Log.d("post","Element " + getAdapterPosition() + " clicked.");
 //            }
 //        });
+    }
+
+    public void setClockDrawable(int viewId, Drawable d){
+        Button b = this.view.findViewById(viewId);
+        b.setCompoundDrawables(d, null, null, null);
     }
 
 }

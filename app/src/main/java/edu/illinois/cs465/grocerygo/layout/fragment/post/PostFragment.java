@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,21 +30,24 @@ public class PostFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return inflater.inflate(R.layout.post_fragment, container, false);
         initDataset();
-//        Drawable clock = getResources().getDrawable(R.drawable.clock);
-//        clock.setBounds(0,  0, 10, 10);
         View rootView = inflater.inflate(R.layout.post_fragment, container, false);
+
         postRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         myLayoutManager = new LinearLayoutManager(getActivity());
-        postRecyclerView.setLayoutManager(myLayoutManager);
-        myPostAdapter = new PostAdapter(this.postList);
+
+        myPostAdapter = new PostAdapter(this.postList, getContext());
+
         postRecyclerView.setAdapter(myPostAdapter);
+        postRecyclerView.setLayoutManager(myLayoutManager);
 
         return  rootView;
     }
 
     private void initDataset() {
         this.postList = new ArrayList<>();
-        PostData pd = new PostData("iris", "11:00 am Oct. 23rd", "I want somebody to join me", "Walmart", "3.3 m");
+        PostData pd2 = new PostData("jake", "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.9 m");
+        PostData pd = new PostData("iris", "11:00 am Oct. 23rd", "I want somebody to join me", "Walmart", " 3.3 m");
+        this.postList.add(pd2);
         this.postList.add(pd);
     }
 }
