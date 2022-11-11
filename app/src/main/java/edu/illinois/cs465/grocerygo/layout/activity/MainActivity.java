@@ -24,7 +24,7 @@ import com.google.android.material.tabs.TabLayout;
 import edu.illinois.cs465.grocerygo.R;
 import edu.illinois.cs465.grocerygo.layout.fragment.MailFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.OngoingFragment;
-import edu.illinois.cs465.grocerygo.layout.fragment.PostFragment;
+import edu.illinois.cs465.grocerygo.layout.fragment.post.PostFragment;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawer;
