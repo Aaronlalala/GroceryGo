@@ -12,7 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,10 +25,13 @@ import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.chatRoomAdapter;
 import edu.illinois.cs465.grocerygo.layout.fragment.MailFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.OngoingFragment;
-import edu.illinois.cs465.grocerygo.layout.fragment.post.PostFragment;
+import edu.illinois.cs465.grocerygo.layout.fragment.PostFragment;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawer;
@@ -36,28 +43,37 @@ public class MainActivity extends AppCompatActivity {
     // current page
     private Fragment curFragment;
 
+    private RecyclerView recycler_view;
+    private chatRoomAdapter adapter;
+    private ArrayList<String> mData = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage_layout);
-        mBottomTabLayout = findViewById(R.id.bottom_tab);
-        setBottomTabStyle();
-        attachFragment(POST_FRAGMENT_TAG);
-//        setContentView(R.layout.activity_main);
-//
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        // Set toolbar as the action bar
-//        setSupportActionBar(toolbar);
-//
-//        drawer = findViewById(R.id.drawer_layout);
-//
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-//                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
+//        setContentView(R.layout.homepage_layout);
+//        mBottomTabLayout = findViewById(R.id.bottom_tab);
+//        setBottomTabStyle();
+//        attachFragment(POST_FRAGMENT_TAG);
+
+        setContentView(R.layout.mail_fragment);
+        // 準備資料，塞50個項目到ArrayList裡
+        for(int i = 0; i < 100; i++) {
+            mData.add("項目"+i);
+        }
+        // 將資料交給adapter
+        adapter = new chatRoomAdapter(mData);
+        // 設置adapter給recycler_view
+        recycler_view.setAdapter(adapter);
+        // 連結元件
+        recycler_view = (RecyclerView) findViewById(R.id.recycler_view);
+        // 設置RecyclerView為列表型態
+        recycler_view.setLayoutManager(new LinearLayoutManager(this));
+        // 設置格線
+        //recycler_view.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
     }
 
-    // Layout and handler functions for bottom tab
     private  void setBottomTabStyle() {
         mBottomTabLayout.addTab(mBottomTabLayout.newTab().setCustomView(generateTabStyle(BOTTOM_HOMEPAGE_BUTTON)));
         mBottomTabLayout.addTab(mBottomTabLayout.newTab().setCustomView(generateTabStyle(BOTTOM_ONGOING_BUTTON)));
@@ -84,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 if (tab != null && tab.getCustomView() != null && onBottomTabSelected(tab.getPosition())) {
@@ -114,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
 //        mBottomTabLayout.getTabAt(BOTTOM_HOMEPAGE_BUTTON).select();
     }
 
-    // Helper function to generate default tab icon
     private View generateTabStyle(int position) {
         View view = LayoutInflater.from(this).inflate(R.layout.tabitem_layout, null);
         ImageView img = view.findViewById(R.id.tab_icon);
@@ -161,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         curPosition = position;
         return true;
     }
-    // Method to attach fragment to the mainActivity
+
     private void attachFragment(String tag) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);

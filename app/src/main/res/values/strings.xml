@@ -39,5 +39,6 @@
     <string name="reply">回复</string>
     <string name="all_reply">全部回复</string>
     <string name="my_msg">我的消息</string>
-    <string name="comment_underline"><u>comments</u></string>
+    <string name="chatroom">chatroom</string>
+    <string name="delete">delete</string>
 </resources>

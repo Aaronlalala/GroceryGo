@@ -11,10 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import edu.illinois.cs465.grocerygo.R;
 
-public class OngoingFragment extends Fragment {
+public class PostFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.ongoing_fragment, container, false);
+        return inflater.inflate(R.layout.post_fragment, container, false);
     }
 }

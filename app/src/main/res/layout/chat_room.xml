@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_500"
+        android:id="@+id/toolbar"
+        android:theme="@style/Theme.GroceryGo"
+        android:elevation="4dp">
+
+    <Button
+            android:id="@+id/button_goback"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:drawableLeft="@drawable/ic_arrow_back" />
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sam"
+        android:textColor="@android:color/white"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_marginLeft="120dp"
+        />
+
+    <Button
+            android:id="@+id/button_phone"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:layout_marginLeft="100dp"
+            android:drawableLeft="@drawable/ic_phone" />
+
+</androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="0dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/rela_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/idTVCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="50dp"
+                android:text="Want to help!"
+                android:textColor="@color/black"
+                android:textSize="50sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/accept"
+                android:layout_height="180dp"
+                android:layout_width="200dp"
+                android:layout_marginTop="170dp"
+                android:text="accept"
+                />
+
+            <Button
+                android:id="@+id/decline"
+                android:layout_marginLeft="200dp"
+                android:layout_height="180dp"
+                android:layout_width="200dp"
+                android:layout_marginTop="170dp"
+                android:text="decline"
+                 />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/idIVCourseImage1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:contentDescription="@string/app_name"
+                android:padding="5dp"
+                android:src="@drawable/car_black" />
+
+            <TextView
+                android:id="@+id/idTVCourseName1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_toEndOf="@id/idIVCourseImage1"
+                android:text="Hi I can share my ride!"
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                 />
+
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/idTVCourseName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="170dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="70dp"
+                android:layout_toEndOf="@id/idIVCourseImage2"
+                android:text="Awosome!"
+                android:textColor="@color/black"
+                android:background="@color/white_"
+                android:textSize="30sp"
+                android:layout_alignParentLeft="true"
+                 />
+
+            <ImageView
+                android:id="@+id/idIVCourseImage2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:contentDescription="@string/app_name"
+                android:layout_alignParentRight="true"
+                android:padding="5dp"
+                android:src="@drawable/car_black" />
+    </RelativeLayout>
+
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_500"
+        android:id="@+id/toolbar2"
+        android:theme="@style/Theme.GroceryGo"
+        android:elevation="4dp"
+        android:layout_marginTop="120dp">
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:drawableLeft="@drawable/home_white" />
+
+    <Button
+            android:id="@+id/button_mailbox"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:layout_marginLeft="300dp"
+            android:drawableLeft="@drawable/envelope_black" />
+
+    </androidx.appcompat.widget.Toolbar>
+</LinearLayout>
