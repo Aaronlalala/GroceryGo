@@ -10,4 +10,6 @@ public class Constant {
     public static final String ONGOING_FRAGMENT_TAG = "ongoing_fragment_tag";
     public static final String MAIL_FRAGMENT_TAG = "mail_fragment_tag";
 
+
+
 }
