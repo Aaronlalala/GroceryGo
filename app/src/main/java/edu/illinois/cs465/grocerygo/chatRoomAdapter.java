@@ -1,6 +1,6 @@
 package edu.illinois.cs465.grocerygo;
 
-import android.support.annotation.NonNull;
+//import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +51,7 @@ public class chatRoomAdapter extends RecyclerView.Adapter<chatRoomAdapter.ViewHo
         }
     }
 
-    @NonNull
+//    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // 連結項目布局檔list_item
