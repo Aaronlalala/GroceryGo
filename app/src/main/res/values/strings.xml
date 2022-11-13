@@ -42,4 +42,19 @@
     <string name="chatroom">chatroom</string>
     <string name="delete">delete</string>
     <string name="comment_underline"><u>comments</u></string>
+    <string name="share">share</string>
+    <string name="request">request</string>
+    <string name="i_want_to_post">I want to Post:</string>
+    <string name="remarks">Remarks</string>
+    <string name="please_enter_your_remarks">please enter your Remarks</string>
+    <string name="post">Post</string>
+    <string name="destination">Destination:</string>
+    <string name="edit_destination">enter your destination</string>
+    <string name="from">Time From:</string>
+    <string name="to">To:</string>
+    <string name="user_name">Ultra Bracelet</string>
+    <string name="leave_tips">Leave Tips</string>
+    <string name="add_a_note">Add a Note</string>
+    <string name="confirm">Confirm</string>
+    <string name="time_toast">Time input invalid!</string>
 </resources>
