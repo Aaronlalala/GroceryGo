@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="175dp"
-    android:background="@color/purple_500"
+    android:background="#25EABC84"
     android:gravity="bottom"
     android:padding="16dp"
     android:theme="@style/Theme.GroceryGo"
@@ -19,12 +19,12 @@
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
         android:text="User Name"
-        android:textAppearance="@style/Theme.GroceryGo.WhiteText"/>
+        android:textColor="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="zt17@illinois.edu"
-        android:textAppearance="@style/Theme.GroceryGo.WhiteText"/>
+        android:textColor="@color/black"/>
 
 </LinearLayout>

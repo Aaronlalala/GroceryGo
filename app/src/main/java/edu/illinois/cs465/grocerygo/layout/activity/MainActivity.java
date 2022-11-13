@@ -7,8 +7,11 @@ import static edu.illinois.cs465.grocerygo.constant.Constant.MAIL_FRAGMENT_TAG;
 import static edu.illinois.cs465.grocerygo.constant.Constant.ONGOING_FRAGMENT_TAG;
 import static edu.illinois.cs465.grocerygo.constant.Constant.POST_FRAGMENT_TAG;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private int curPosition = 0;
     // current page
     private Fragment curFragment;
+    // tool bar
+    private Toolbar toolbar;
 
 //    private RecyclerView recycler_view;
 //    private chatRoomAdapter adapter;
@@ -54,19 +59,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_layout);
         initView();
-//        setContentView(R.layout.activity_main);
-//
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        // Set toolbar as the action bar
-//        setSupportActionBar(toolbar);
-//
-//        drawer = findViewById(R.id.drawer_layout);
-//
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-//                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
+
+        // Create side menu
+        toolbar = findViewById(R.id.toolbar);
+        // Set toolbar as the action bar
+        setSupportActionBar(toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 
     private void initView() {
         mBottomTabLayout = findViewById(R.id.bottom_tab);
@@ -213,12 +227,5 @@ public class MainActivity extends AppCompatActivity {
         curFragment = fragment;
         ft.commit();
     }
-//    @Override
-//    public void onBackPressed() {
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
+
 }
