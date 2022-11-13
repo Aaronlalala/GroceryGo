@@ -8,27 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_arrow_back"
-                android:textColor="@color/black"
-                android:backgroundTint="@color/white"
-                style="@style/Widget.AppCompat.Button.Borderless"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:gravity="center"
-                android:text="Journey Details"
-                android:textColor="@color/black"
-                android:textSize="25dp" />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

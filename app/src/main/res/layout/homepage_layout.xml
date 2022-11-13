@@ -1,35 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
-    <LinearLayout
+<!--    Other components should be placed in this drawer layout-->
+    <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/post"
-            android:background="@drawable/pub"
-            android:layout_width="52dp"
-            android:layout_height="40dp" />
-    </LinearLayout>
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        android:fitsSystemWindows="true"
+        tools:context=".layout.activity.MainActivity"
+        tools:openDrawer="start">
+<!--    Create a linear layout to place tool bar-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+<!--        Create a tool bar component-->
+
+            <!--        Create a frame layout for fragment-->
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#25EABC84"
+                android:elevation="4dp"
+                android:theme="@style/Theme.GroceryGo">
+                <!--                Put the button inside the tool bar-->
+                <ImageView
+                    android:id="@+id/post"
+                    android:layout_width="52dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/pub"
+                    android:layout_gravity="right"
+                    />
+            </androidx.appcompat.widget.Toolbar>
+
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </FrameLayout>
+<!--        Bottom bar-->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/bottom_tab"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:tabIndicatorHeight="0dp"
+                app:tabSelectedTextColor="@color/pure_black"
+                app:tabTextColor="@color/dan_black"
+                android:layout_gravity="bottom">
+            </com.google.android.material.tabs.TabLayout>
+
+        </LinearLayout>
+
+        <!--    Add nav_header element to main-->
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:id="@+id/nav_view"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/drawer_menu"/>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/bottom_tab"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:tabIndicatorHeight="0dp"
-        app:tabSelectedTextColor="@color/pure_black"
-        app:tabTextColor="@color/dan_black"
-        android:layout_gravity="bottom">
-    </com.google.android.material.tabs.TabLayout>
+
+
+
+
 
 </LinearLayout>
