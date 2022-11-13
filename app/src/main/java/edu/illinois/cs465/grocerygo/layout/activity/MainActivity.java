@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,26 +53,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_layout);
+        initView();
+//        setContentView(R.layout.activity_main);
+//
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        // Set toolbar as the action bar
+//        setSupportActionBar(toolbar);
+//
+//        drawer = findViewById(R.id.drawer_layout);
+//
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+//                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
+    }
+
+    private void initView() {
         mBottomTabLayout = findViewById(R.id.bottom_tab);
         setBottomTabStyle();
         attachFragment(POST_FRAGMENT_TAG);
-
-//        setContentView(R.layout.mail_fragment);
-//        // 準備資料，塞50個項目到ArrayList裡
-//        for(int i = 0; i < 100; i++) {
-//            mData.add("項目"+i);
-//        }
-//        // 將資料交給adapter
-//        adapter = new chatRoomAdapter(mData);
-//        // 設置adapter給recycler_view
-//        recycler_view.setAdapter(adapter);
-//        // 連結元件
-//        recycler_view = (RecyclerView) findViewById(R.id.recycler_view);
-//        // 設置RecyclerView為列表型態
-//        recycler_view.setLayoutManager(new LinearLayoutManager(this));
-//        // 設置格線
-//        //recycler_view.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
+        ImageView postView = findViewById(R.id.post);
+        postView.setOnClickListener(view -> {
+            Intent intent = new Intent(this, PostActivity.class);
+            this.startActivity(intent);
+        });
     }
 
     private  void setBottomTabStyle() {
