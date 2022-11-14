@@ -15,9 +15,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,13 +25,11 @@ import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
-
 import edu.illinois.cs465.grocerygo.R;
 //import edu.illinois.cs465.grocerygo.chatRoomAdapter;
 import edu.illinois.cs465.grocerygo.layout.fragment.MailFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.OngoingFragment;
-import edu.illinois.cs465.grocerygo.layout.fragment.PostFragment;
+import edu.illinois.cs465.grocerygo.layout.fragment.post.PostFragment;
 
 
 public class MainActivity extends AppCompatActivity {
