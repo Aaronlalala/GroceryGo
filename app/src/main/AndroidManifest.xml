@@ -13,8 +13,8 @@
         android:theme="@style/Theme.GroceryGo"
         tools:targetApi="31">
         <activity
-            android:name=".ChattingActivity"
-            android:exported="false">
+            android:name=".layout.activity.ChattingActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
