@@ -1,18 +1,35 @@
 package edu.illinois.cs465.grocerygo.layout.activity;
 
 import android.os.Bundle;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import edu.illinois.cs465.grocerygo.R;
 
-public class RatingActivity extends AppCompatActivity {
+public class RatingActivity extends AbstractActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rating_layout);
-//        initView();
+        initView();
+    }
+
+    private void initView() {
+//        EditText message = findViewById(R.id.note);
+        RatingBar score = findViewById(R.id.score);
+        EditText tips = findViewById(R.id.tips);
+        tips.setInputType(EditorInfo.TYPE_CLASS_PHONE);
+        TextView finishBtn = findViewById(R.id.finish);
+        finishBtn.setOnClickListener(view -> {
+            if (score.getRating() == 0.0f) {
+                Toast.makeText(this, "Please Give Your Rate!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

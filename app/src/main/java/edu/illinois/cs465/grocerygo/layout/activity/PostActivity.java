@@ -8,8 +8,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 
 import java.util.Calendar;
 import java.util.Date;
@@ -17,7 +15,7 @@ import java.util.Date;
 import edu.illinois.cs465.grocerygo.R;
 import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
 
-public class PostActivity extends AppCompatActivity {
+public class PostActivity extends AbstractActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +28,7 @@ public class PostActivity extends AppCompatActivity {
         TextView postBtn = findViewById(R.id.post);
         TextView timePickerFrom = findViewById(R.id.time_picker_from);
         TextView timePickerTo = findViewById(R.id.time_picker_to);
-        dismissBtn.setOnClickListener(view -> {
-            this.finish();
-        });
+        dismissBtn.setOnClickListener(view -> this.finish());
         postBtn.setOnClickListener(view -> {
             String fromTime = (String) timePickerFrom.getText();
             String toTime = (String) timePickerTo.getText();
