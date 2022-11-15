@@ -41,6 +41,7 @@
 
         <activity android:name=".layout.activity.PostDetailActivity" />
 
+        <activity android:name=".layout.activity.RatingActivity" />
     </application>
 
 </manifest>

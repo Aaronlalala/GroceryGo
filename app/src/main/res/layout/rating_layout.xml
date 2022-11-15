@@ -27,6 +27,7 @@
         android:textSize="28dp"
         android:textStyle="bold"/>
     <RatingBar
+        android:id="@+id/score"
         android:layout_marginTop="24dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:id="@+id/note"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="40dp"
@@ -44,9 +46,22 @@
         android:gravity="top"
         android:hint="@string/add_a_note"
         android:inputType="textMultiLine"
+        android:textColorHint="#546E7A"
+        android:importantForAutofill="no"
+        android:autofillHints="" />
+    <EditText
+        android:id="@+id/tips"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:gravity="top"
+        android:hint="@string/you_can_leave_your_tips"
         android:textColorHint="#546E7A" />
 
     <TextView
+        android:id="@+id/finish"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"

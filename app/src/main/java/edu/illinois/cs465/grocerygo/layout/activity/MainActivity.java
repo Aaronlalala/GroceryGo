@@ -26,7 +26,6 @@ import android.widget.ImageView;
 import com.google.android.material.tabs.TabLayout;
 
 import edu.illinois.cs465.grocerygo.R;
-//import edu.illinois.cs465.grocerygo.chatRoomAdapter;
 import edu.illinois.cs465.grocerygo.layout.fragment.MailFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.OngoingFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.post.PostFragment;
@@ -44,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
     // tool bar
     private Toolbar toolbar;
 
-//    private RecyclerView recycler_view;
-//    private chatRoomAdapter adapter;
-//    private ArrayList<String> mData = new ArrayList<>();
 
 
     @Override
