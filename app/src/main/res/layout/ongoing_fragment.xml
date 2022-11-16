@@ -3,240 +3,314 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <FrameLayout
+        android:id="@+id/map_frag"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Map"
+            android:textColor="@color/black" />
+    </FrameLayout>
 
-            android:layout_height="200dp"
-            android:orientation="vertical"
-            android:gravity="center">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/ongoing_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map_frag"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Map"
-                android:gravity="center"
-                android:textColor="@color/black" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ongoing_top_component"
+            android:gravity="center"
+            android:text="Distance to the driver:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"/>
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ongoing_top_component"
 
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:gravity="center"
+            android:text="Distance to the destination:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ongoing_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="80dp"
             android:layout_height="80dp"
-            android:orientation="vertical"
-            android:background="#fefae0"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Distance to the driver:"
-                android:layout_marginLeft="10dp"
-            />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
 
-                android:layout_marginTop="20dp"
-                android:text="Distance to the destination:"
-                android:layout_marginLeft="10dp"
-                />
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"/>
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/ongoing_top_component"
+            android:gravity="center"
+            android:text="User ID"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.20" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="#fefae0"
-            >
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/ongoing_top_component"
+            android:gravity="center"
+            android:text="Email Verified"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/driver_license"
+            app:layout_constraintStart_toEndOf="@+id/user_id"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/avatar"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/ic_launcher" />
+        <ImageView
+            android:id="@+id/email_veri"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_accept"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/email"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.121" />
 
-            <TextView
-                android:id="@+id/user_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User ID"
-                android:layout_toRightOf="@+id/avatar"
-                android:textSize="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                />
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email Verified"
-                android:layout_toRightOf="@+id/user_id"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="40dp"
-                android:gravity="center"
-                />
+        <TextView
+            android:id="@+id/driver_license"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/ongoing_top_component"
+            android:gravity="center"
+            android:text="Driver License"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/user_id"
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
-            <ImageView
-                android:id="@+id/email_veri"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@id/email"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ic_accept"
-                />
+        <ImageView
+            android:id="@+id/license_veri"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_accept"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/driver_license"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.512" />
 
-            <TextView
-                android:id="@+id/driver_license"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/email"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="3dp"
-                android:layout_toRightOf="@id/user_id"
-                android:gravity="center"
-                android:text="Driver License"
-                />
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_id"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="130dp"
+            android:numStars="5"
+            android:rating="4.5"
+            android:scaleX="0.35"
+            android:scaleY="0.35"
+            android:stepSize="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_id" />
 
-            <ImageView
-                android:id="@+id/license_veri"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="43dp"
-                android:layout_toRightOf="@id/driver_license"
-                android:src="@drawable/ic_accept" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/license_veri"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/ongoing_top_component"
+            android:gravity="center"
+            android:text="Plate Number"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/user_id"
+            app:layout_constraintTop_toBottomOf="@+id/driver_license" />
 
-            <RatingBar
-                android:id="@+id/rating_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/avatar"
-                android:layout_below="@id/user_id"
-                android:layout_marginLeft="-45dp"
-                android:layout_marginTop="-10dp"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
-                android:numStars="5"
-                android:rating="4.5"
-                android:stepSize="0.5"
-                />
-            <Button
-                android:id="@+id/comments"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comment_underline"
-                android:textAllCaps="false"
-                android:layout_toRightOf="@id/avatar"
-                android:layout_below="@id/rating_bar"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="-25dp"
-                android:padding="0dp"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
-                android:backgroundTint="#FFFFFF"
-                android:textColor="@color/black"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/license_veri"
-                android:layout_marginLeft="-39dp"
-                android:layout_marginTop="3dp"
-                android:layout_toRightOf="@id/rating_bar"
-                android:text="Plate Number:" />
-        </RelativeLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#fefae0">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_seat"
-                app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_clock"
-                app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_cart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/comments"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-15dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:text="@string/comment_underline"
+            android:textAllCaps="false"
+            android:textColor="@color/primary"
+            app:layout_constraintStart_toEndOf="@+id/avatar"
+            app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ongoing_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_seat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_cart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/join"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ongoing_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/contact_driver"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="30dp"
+        android:visibility="visible">
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Join"
-                android:textAllCaps="false"
-                android:layout_gravity="center"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contact Driver"
-                android:textAllCaps="false"
-                android:layout_gravity="center"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rate Driver"
-                android:textAllCaps="false"
-                android:layout_gravity="center"
-                android:backgroundTint="#e5e5e5"
-                />
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_request_post"
+            android:tint="@color/white" />
 
-        </LinearLayout>
+    </FrameLayout>
 
-    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/contact_driver"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ongoing_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rate_driver"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/join"
+        android:layout_marginBottom="30dp">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_message_black"
+            android:tint="@color/white" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/rate_driver"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ongoing_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/contact_driver"
+        android:layout_marginBottom="30dp"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:padding="10dp"
+            android:src="@drawable/ic_review"
+            android:tint="@color/white"/>
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
