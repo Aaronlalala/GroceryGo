@@ -39,15 +39,15 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="211dp"
+            android:layout_width="190dp"
             android:layout_height="match_parent"
             >
 
             <Button
                 android:id="@+id/theTime"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:layout_width="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="8dp"

@@ -1,5 +1,7 @@
 package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
+import java.util.Date;
+
 public class PostData {
     int imageId;
     Double distanceDouble;

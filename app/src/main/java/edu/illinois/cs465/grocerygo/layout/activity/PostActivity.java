@@ -1,8 +1,10 @@
 package edu.illinois.cs465.grocerygo.layout.activity;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +30,7 @@ public class PostActivity extends AppCompatActivity {
     private void initView() {
         ImageView dismissBtn = findViewById(R.id.btn_dismiss);
         TextView postBtn = findViewById(R.id.post);
+        TextView datePicker = findViewById(R.id.date_picker);
         TextView timePickerFrom = findViewById(R.id.time_picker_from);
         TextView timePickerTo = findViewById(R.id.time_picker_to);
         dismissBtn.setOnClickListener(view -> {
@@ -41,6 +44,23 @@ public class PostActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, R.string.time_toast, Toast.LENGTH_SHORT).show();
             }
+        });
+
+        datePicker.setOnClickListener(view -> {
+            //current date
+            final Calendar c = Calendar.getInstance();
+            int mYear = c.get(Calendar.YEAR);
+            int mMonth = c.get(Calendar.MONTH);
+            int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                            datePicker.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
         });
         timePickerFrom.setOnClickListener(view -> {
             Dialog dialog = new TimePickerDialog(this, R.style.myDialog, timePickerFrom);

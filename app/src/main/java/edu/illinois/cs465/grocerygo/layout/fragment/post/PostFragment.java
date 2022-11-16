@@ -2,6 +2,10 @@ package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
 import static edu.illinois.cs465.grocerygo.constant.Constant.POST_FRAGMENT_TAG;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,8 +16,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.DrawableRes;
@@ -23,12 +30,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import edu.illinois.cs465.grocerygo.R;
 import edu.illinois.cs465.grocerygo.layout.activity.PostActivity;
 import edu.illinois.cs465.grocerygo.layout.activity.PostDetailActivity;
+import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
 
 public class PostFragment extends Fragment {
 
@@ -36,7 +49,7 @@ public class PostFragment extends Fragment {
     public RecyclerView.LayoutManager myLayoutManager;
     public PostAdapter myPostAdapter;
     public List<PostData> postList;
-    String[] sortOptions = { "Sort by distance", "Sort by time"};
+    String[] sortOptions = { "Sort by time", "Sort by distance"};
 
     @Nullable
     @Override
@@ -80,14 +93,25 @@ public class PostFragment extends Fragment {
         sortDropdown.setAdapter(ad);
 
         sortDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            //parent就是父控件spinner
-            //view就是spinner内填充的textview,id=@android:id/text1
-            //position是值所在数组的位置
-            //id是值所在行的位置，一般来说与positin一致
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int pos, long id) {
                 if(pos==0){
+                    DateFormat df = new SimpleDateFormat("MM-dd HH:mm");
+                    postList.sort((a,b) -> {
+                        Date aDate = null;
+                        Date bDate = null;
+                        try {
+                            aDate = df.parse(a.time);
+                            bDate = df.parse(b.time);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        return aDate.compareTo(bDate);
+                    });
+                    myPostAdapter.notifyDataSetChanged();
+                }
+                else{
                     postList.sort((a,b) -> {
                         int res;
                         if(a.distanceDouble - b.distanceDouble<0) res = -1;
@@ -95,10 +119,6 @@ public class PostFragment extends Fragment {
                         return res;
                     });
                     myPostAdapter.notifyDataSetChanged();
-                    System.out.println("ssssssqqqqqqq"+postList.get(0).distanceDouble);
-                }
-                else{
-                    System.out.println("ssssssqqqqqqq"+postList.get(0).distanceDouble);
                 }
             }
             @Override
@@ -107,15 +127,71 @@ public class PostFragment extends Fragment {
             }
         });
 
+        Button filterButton = rootView.findViewById(R.id.filter);
+        filterButton.setOnClickListener(view -> {
+            showFilterDialog();
+        });
+
         return  rootView;
+    }
+
+    private void showFilterDialog(){
+        AlertDialog.Builder customizeDialog = new AlertDialog.Builder(getContext());
+        final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.filter_dialog,null);
+        TextView datePicker = dialogView.findViewById(R.id.date_picker);
+        TextView timePickerFrom = dialogView.findViewById(R.id.time_picker_from);
+        TextView timePickerTo = dialogView.findViewById(R.id.time_picker_to);
+
+        datePicker.setOnClickListener(view -> {
+            //current date
+            final Calendar c = Calendar.getInstance();
+            int mYear = c.get(Calendar.YEAR);
+            int mMonth = c.get(Calendar.MONTH);
+            int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
+                    new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                            datePicker.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
+        });
+        timePickerFrom.setOnClickListener(view -> {
+            Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerFrom);
+            dialog.show();
+        });
+        timePickerTo.setOnClickListener(view -> {
+            Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerTo);
+            dialog.show();
+        });
+//        customizeDialog.setTitle("Filter posts");
+        customizeDialog.setView(dialogView);
+        customizeDialog.setPositiveButton("OK",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 获取EditView中的输入内容
+                        EditText destination = (EditText) dialogView.findViewById(R.id.destination);
+                    }
+                });
+        customizeDialog.show();
     }
 
     private void initDataset() {
         this.postList = new ArrayList<>();
         //PostData pd2 = new PostData(R.drawable.girl, "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.9 m");
-        PostData pd2 = new PostData(5.3, R.drawable.man, "Jake", "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.3 m");
-        PostData pd = new PostData(3.3, R.drawable.girl, "iris", "11:00 am Oct. 23rd", "I want somebody to join me", "Walmart", " 3.3 m");
+        PostData pd2 = new PostData(5.3, R.drawable.man, "Jake", "10-11 11:10", "Plan to go tomorrow", "Costco", " 5.3 m");
+        PostData pd = new PostData(3.3, R.drawable.girl, "Iris", "10-12 13:12", "I want somebody to join me", "Walmart", " 3.3 m");
+        PostData pd3 = new PostData(1.2, R.drawable.man, "John", "11-20 13:12", "Anyone want to join?", "Walmart", " 1.2 m");
+        PostData pd4 = new PostData(6.0, R.drawable.girl, "Lucy", "09-25 13:12", "I prefer tips > <", "Walmart", " 6.0 m");
+        PostData pd5 = new PostData(4.5, R.drawable.man, "Oven", "12-08 13:12", "Hang out with me!", "Walmart", " 4.5 m");
+
         this.postList.add(pd2);
         this.postList.add(pd);
+        this.postList.add(pd3);
+        this.postList.add(pd4);
+        this.postList.add(pd5);
     }
 }
