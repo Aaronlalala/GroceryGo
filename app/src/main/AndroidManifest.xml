@@ -12,7 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GroceryGo"
         tools:targetApi="31">
-<!--        Replace action bar with tool bar in main activity-->
+        <activity
+            android:name=".layout.activity.ChattingActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- Replace action bar with tool bar in main activity -->
         <activity
             android:name=".layout.activity.MainActivity"
             android:exported="true"
@@ -28,7 +35,11 @@
                 android:value="" />
         </activity>
         <activity android:name=".layout.activity.PostActivity" />
+
         <activity android:name=".layout.activity.ChatActivity" />
+
+
+        <activity android:name=".layout.activity.PostDetailActivity" />
 
     </application>
 
