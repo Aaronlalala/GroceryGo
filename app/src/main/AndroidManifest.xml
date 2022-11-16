@@ -35,6 +35,7 @@
                 android:value="" />
         </activity>
         <activity android:name=".layout.activity.PostActivity" />
+        <activity android:name=".layout.activity.OngoingActivity" />
     </application>
 
 </manifest>
