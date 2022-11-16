@@ -13,10 +13,12 @@
         android:id="@+id/viewBackground"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/chat_background_top"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/chat_background_top"
         app:layout_constraintBottom_toTopOf="@id/layoutSend"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
 
     <FrameLayout
         android:id="@+id/layoutSend"
