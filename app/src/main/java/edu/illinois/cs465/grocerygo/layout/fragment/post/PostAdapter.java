@@ -29,9 +29,22 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
      */
     public PostAdapter(List<PostData> postList, Context context)
     {
-        Log.d("tttttttt", postList.toString());
+        //Log.d("tttttttt", postList.toString());
         this.context = context;
         this.postList = postList;
+    }
+
+
+    //变量接收接口
+    private OnItemClickListener mOnItemClickListener;
+    //定义接口：点击事件
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);//单击
+        void onItemLongClick(View view, int position);//长按
+    }
+    //设置接口接收的方法
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -73,6 +86,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         viewHolder.theRemark.setText(postList.get(position).remark);
         viewHolder.theDestination.setText(postList.get(position).destination);
         viewHolder.theDistance.setText(postList.get(position).distance);
+
+        viewHolder.root.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (mOnItemClickListener != null) mOnItemClickListener.onItemClick(v, position);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
