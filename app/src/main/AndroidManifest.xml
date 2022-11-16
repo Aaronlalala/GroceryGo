@@ -35,7 +35,12 @@
                 android:value="" />
         </activity>
         <activity android:name=".layout.activity.PostActivity" />
+
+        <activity android:name=".layout.activity.ChatActivity" />
+
+
         <activity android:name=".layout.activity.PostDetailActivity" />
+
     </application>
 
 </manifest>

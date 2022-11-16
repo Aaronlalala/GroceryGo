@@ -5,32 +5,9 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        android:background="@color/purple_500"-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:theme="@style/Theme.GroceryGo"-->
-<!--        android:elevation="4dp">-->
-
-<!--    <Button-->
-<!--            android:id="@+id/button_goback"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_width="50dp"-->
-<!--            android:drawableLeft="@drawable/ic_arrow_back" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/toolbar_title"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Message Box"-->
-<!--        android:textColor="@android:color/white"-->
-<!--        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"-->
-<!--        android:layout_gravity="center"-->
-<!--        />-->
-<!--</androidx.appcompat.widget.Toolbar>-->
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/idCardView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="0dp"
@@ -244,27 +221,5 @@
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_500"
-        android:id="@+id/toolbar2"
-        android:theme="@style/Theme.GroceryGo"
-        android:elevation="4dp"
-        android:layout_marginTop="20dp">
 
-    <Button
-        android:id="@+id/button_home"
-        android:layout_height="50dp"
-        android:layout_width="50dp"
-        android:drawableLeft="@drawable/home_white" />
-
-        <Button
-            android:id="@+id/button_mailbox"
-            android:layout_height="50dp"
-            android:layout_width="50dp"
-            android:layout_marginLeft="300dp"
-            android:drawableLeft="@drawable/envelope_black" />
-
-    </androidx.appcompat.widget.Toolbar>
 </LinearLayout>

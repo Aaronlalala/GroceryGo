@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_500"
+        android:background="#25EABC84"
         android:id="@+id/toolbar"
         android:theme="@style/Theme.GroceryGo"
         android:elevation="4dp">
@@ -18,6 +18,7 @@
             android:id="@+id/button_goback"
             android:layout_height="50dp"
             android:layout_width="50dp"
+        android:background="#25EABC84"
             android:drawableLeft="@drawable/ic_arrow_back" />
 
     <TextView
@@ -35,6 +36,7 @@
             android:layout_height="50dp"
             android:layout_width="50dp"
             android:layout_marginLeft="100dp"
+            android:background="#25EABC84"
             android:drawableLeft="@drawable/ic_phone" />
 
 </androidx.appcompat.widget.Toolbar>
@@ -60,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="70dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="70dp"
                 android:text="Want to help!"
                 android:textColor="@color/black"
                 android:textSize="50sp"
@@ -109,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="40dp"
                 android:layout_toEndOf="@id/idIVCourseImage1"
                 android:text="Hi I can share my ride!"
                 android:background="@color/blue"
@@ -159,28 +161,4 @@
 
 
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_500"
-        android:id="@+id/toolbar2"
-        android:theme="@style/Theme.GroceryGo"
-        android:elevation="4dp"
-        android:layout_marginTop="120dp">
-
-    <Button
-        android:id="@+id/button_home"
-        android:layout_height="50dp"
-        android:layout_width="50dp"
-        android:drawableLeft="@drawable/home_white" />
-
-    <Button
-            android:id="@+id/button_mailbox"
-            android:layout_height="50dp"
-            android:layout_width="50dp"
-            android:layout_marginLeft="300dp"
-            android:drawableLeft="@drawable/envelope_black" />
-
-    </androidx.appcompat.widget.Toolbar>
 </LinearLayout>
