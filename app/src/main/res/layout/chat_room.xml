@@ -159,28 +159,4 @@
 
 
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_500"
-        android:id="@+id/toolbar2"
-        android:theme="@style/Theme.GroceryGo"
-        android:elevation="4dp"
-        android:layout_marginTop="120dp">
-
-    <Button
-        android:id="@+id/button_home"
-        android:layout_height="50dp"
-        android:layout_width="50dp"
-        android:drawableLeft="@drawable/home_white" />
-
-    <Button
-            android:id="@+id/button_mailbox"
-            android:layout_height="50dp"
-            android:layout_width="50dp"
-            android:layout_marginLeft="300dp"
-            android:drawableLeft="@drawable/envelope_black" />
-
-    </androidx.appcompat.widget.Toolbar>
 </LinearLayout>
