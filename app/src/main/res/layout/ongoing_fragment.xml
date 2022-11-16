@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary">
+    android:background="@color/white">
 
     <FrameLayout
         android:id="@+id/map_frag"
@@ -258,7 +258,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="30dp"
-        android:visibility="visible">
+        android:visibility="gone">
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -300,7 +300,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/contact_driver"
         android:layout_marginBottom="30dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
