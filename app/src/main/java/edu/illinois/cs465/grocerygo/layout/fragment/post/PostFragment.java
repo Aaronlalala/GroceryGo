@@ -1,6 +1,5 @@
 package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.illinois.cs465.grocerygo.R;
-import edu.illinois.cs465.grocerygo.layout.activity.MainActivity;
-import edu.illinois.cs465.grocerygo.layout.activity.OngoingActivity;
 
 public class PostFragment extends Fragment {
 
@@ -35,10 +32,6 @@ public class PostFragment extends Fragment {
 //        return inflater.inflate(R.layout.post_fragment, container, false);
         initDataset();
         View rootView = inflater.inflate(R.layout.post_fragment, container, false);
-        Button button = (Button) postRecyclerView.findViewById(R.id.theTime);
-        button.setOnClickListener(view -> {
-            Intent intent = new Intent(this, OngoingActivity.class);
-        });
 
         postRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         myLayoutManager = new LinearLayoutManager(getActivity());
