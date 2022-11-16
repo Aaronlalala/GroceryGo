@@ -24,6 +24,11 @@
                 android:textColor="@color/black" />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -45,6 +50,10 @@
                 android:layout_marginLeft="10dp"
                 />
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -148,9 +157,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/license_veri"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_toRightOf="@id/comments"
+                android:layout_marginLeft="-39dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@id/rating_bar"
                 android:text="Plate Number:" />
         </RelativeLayout>
 
@@ -191,6 +200,11 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
 
         <LinearLayout
             android:layout_width="match_parent"
