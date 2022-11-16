@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import edu.illinois.cs465.grocerygo.R;
@@ -50,17 +51,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_layout);
         initView();
-
-        // Create side menu
-        toolbar = findViewById(R.id.toolbar);
-        // Set toolbar as the action bar
-        setSupportActionBar(toolbar);
-        drawer = findViewById(R.id.drawer_layout);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
     }
 
     @Override
@@ -78,6 +68,30 @@ public class MainActivity extends AppCompatActivity {
         setBottomTabStyle();
         attachFragment(POST_FRAGMENT_TAG);
         ImageView postView = findViewById(R.id.post);
+        NavigationView menu = findViewById(R.id.nav_view);
+        // Create side menu
+        toolbar = findViewById(R.id.toolbar);
+        // Set toolbar as the action bar
+        setSupportActionBar(toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        menu.setNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.nav_history: {
+                    Intent intent = new Intent(this, HistoryActivity.class);
+                    this.startActivity(intent);
+                    drawer.closeDrawers();
+                    return true;
+                }
+                default: {
+                    return false;
+                }
+            }
+        });
         postView.setOnClickListener(view -> {
             Intent intent = new Intent(this, PostActivity.class);
             this.startActivity(intent);
