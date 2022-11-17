@@ -28,6 +28,12 @@ public class ChatActivity extends AppCompatActivity {
             this.finish();
         });
 
+        Button acceptBtn = findViewById(R.id.accept);
+        acceptBtn.setOnClickListener(view -> {
+            this.finish();
+        });
+
+
 
     }
 }
