@@ -4,6 +4,7 @@ import static edu.illinois.cs465.grocerygo.constant.Constant.POST_FRAGMENT_TAG;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -24,6 +25,18 @@ public class PostDetailActivity extends AppCompatActivity {
         postView.setOnClickListener(view -> {
             Intent intent = new Intent(this, MainActivity.class);
             this.startActivity(intent);
+        });
+
+        FrameLayout ContactDriverBtn = findViewById(R.id.contact_driver);
+        ContactDriverBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(this, ChatActivity.class);
+            startActivity(intent);
+        });
+
+        FrameLayout JoinBtn = findViewById(R.id.join);
+        JoinBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(this, ChatActivity.class);
+            startActivity(intent);
         });
     }
 }

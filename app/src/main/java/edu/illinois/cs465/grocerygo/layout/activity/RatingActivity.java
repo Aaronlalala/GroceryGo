@@ -2,7 +2,9 @@ package edu.illinois.cs465.grocerygo.layout.activity;
 
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +32,12 @@ public class RatingActivity extends AbstractActivity {
             if (score.getRating() == 0.0f) {
                 Toast.makeText(this, "Please Give Your Rate!", Toast.LENGTH_SHORT).show();
             }
+            else{this.finish();}
+        });
+
+        ImageView dismissBtn = findViewById(R.id.btn_dismiss);
+        dismissBtn.setOnClickListener(view -> {
+            this.finish();
         });
     }
 }
