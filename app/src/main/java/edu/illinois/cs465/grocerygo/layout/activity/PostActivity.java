@@ -69,7 +69,7 @@ public class PostActivity extends AbstractActivity {
     }
 
     private boolean check(String from, String to) {
-        if (from == null || to == null) {
+        if (from == null || to == null || from.equals("") || to.equals("")) {
             return false;
         }
         String[] fromTime = from.split(":");
