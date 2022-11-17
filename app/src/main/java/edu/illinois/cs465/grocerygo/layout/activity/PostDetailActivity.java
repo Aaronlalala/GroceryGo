@@ -9,8 +9,11 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.layout.fragment.OngoingFragment;
 
 public class PostDetailActivity extends AppCompatActivity {
     @Override
@@ -27,16 +30,9 @@ public class PostDetailActivity extends AppCompatActivity {
             this.startActivity(intent);
         });
 
-        FrameLayout ContactDriverBtn = findViewById(R.id.contact_driver);
-        ContactDriverBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ChatActivity.class);
-            startActivity(intent);
-        });
-
-        FrameLayout JoinBtn = findViewById(R.id.join);
-        JoinBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ChatActivity.class);
-            startActivity(intent);
-        });
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Fragment fragment = new OngoingFragment();
+        ft.add(R.id.post_detail_container, fragment);
+        ft.commit();
     }
 }
