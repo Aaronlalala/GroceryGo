@@ -251,7 +251,7 @@
         android:layout_height="60dp"
         android:background="@drawable/ongoing_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/contact_driver"
+        app:layout_constraintEnd_toStartOf="@+id/contact_driver1"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="30dp"
@@ -268,7 +268,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/contact_driver"
+        android:id="@+id/contact_driver1"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/ongoing_button"
@@ -295,7 +295,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/contact_driver"
+        app:layout_constraintStart_toEndOf="@+id/contact_driver1"
         android:layout_marginBottom="30dp"
         android:visibility="visible">
 

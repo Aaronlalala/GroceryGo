@@ -1,10 +1,12 @@
 package edu.illinois.cs465.grocerygo.layout.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +26,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.layout.activity.ChatActivity;
+import edu.illinois.cs465.grocerygo.layout.activity.RatingActivity;
 
 public class OngoingFragment extends Fragment implements OnMapReadyCallback {
 
@@ -66,6 +70,18 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
             ft.replace(R.id.map, mapFragment).commit();
         }
         mapFragment.getMapAsync(this);
+
+        FrameLayout ContactDriverBtn = view.findViewById(R.id.contact_driver1);
+        ContactDriverBtn.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), ChatActivity.class);
+            startActivity(intent);
+        });
+
+        FrameLayout RatingBtn = view.findViewById(R.id.rate_driver);
+        RatingBtn.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), RatingActivity.class);
+            startActivity(intent);
+        });
     }
 
 
