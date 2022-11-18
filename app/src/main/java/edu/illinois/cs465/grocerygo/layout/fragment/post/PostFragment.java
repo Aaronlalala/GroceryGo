@@ -153,7 +153,7 @@ public class PostFragment extends Fragment {
                     new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                            datePicker.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            datePicker.setText(monthOfYear + "-" + (dayOfMonth + 1) + "-" + year);
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
