@@ -3,7 +3,9 @@ package edu.illinois.cs465.grocerygo.layout.activity;
 import static edu.illinois.cs465.grocerygo.constant.Constant.POST_FRAGMENT_TAG;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -31,8 +33,17 @@ public class PostDetailActivity extends AppCompatActivity {
         });
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        Fragment fragment = new OngoingFragment();
+
+        Bundle extras = getIntent().getExtras();
+        Fragment fragment;
+        if (extras != null) {
+            fragment = new OngoingFragment(extras.getString("activity"));
+        } else {
+            fragment = new OngoingFragment();
+        }
+
         ft.add(R.id.post_detail_container, fragment);
         ft.commit();
     }
+
 }

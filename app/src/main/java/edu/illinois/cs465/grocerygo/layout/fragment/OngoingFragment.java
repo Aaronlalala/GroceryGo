@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +27,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.w3c.dom.Text;
+
 import edu.illinois.cs465.grocerygo.R;
 import edu.illinois.cs465.grocerygo.layout.activity.ChatActivity;
 import edu.illinois.cs465.grocerygo.layout.activity.RatingActivity;
@@ -33,6 +37,17 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
 
     private MapView mMap;
     private GoogleMap googleMap;
+    private String activity;
+
+    // Default constructor for OngoingFragment.
+    public OngoingFragment() {
+
+    }
+    // Pass in a isPost tell whether use this fragment in PostDetailActivity
+    public OngoingFragment(String activity) {
+        this.activity = activity;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,6 +77,17 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView joinBtn = getView().findViewById(R.id.join_button);
+        TextView rateBtn = getView().findViewById(R.id.rate_driver_button);
+        if (this.activity == null) {
+
+        } else if (this.activity.equals("post")) {
+            joinBtn.setVisibility(View.VISIBLE);
+        } else if (this.activity.equals("history")) {
+            rateBtn.setVisibility(View.VISIBLE);
+        }
+
         SupportMapFragment mapFragment= (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment == null) {
             FragmentManager fm= getFragmentManager();
@@ -71,13 +97,13 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
         }
         mapFragment.getMapAsync(this);
 
-        FrameLayout ContactDriverBtn = view.findViewById(R.id.contact_driver1);
+        TextView ContactDriverBtn = view.findViewById(R.id.contact_driver_button);
         ContactDriverBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), ChatActivity.class);
             startActivity(intent);
         });
 
-        FrameLayout RatingBtn = view.findViewById(R.id.rate_driver);
+        TextView RatingBtn = view.findViewById(R.id.rate_driver_button);
         RatingBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), RatingActivity.class);
             startActivity(intent);

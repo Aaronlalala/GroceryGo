@@ -23,7 +23,7 @@ public class HistoryActivity extends AppCompatActivity {
         ImageView dismissBtn = findViewById(R.id.btn_dismiss);
         dismissBtn.setOnClickListener(view -> this.finish());
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        Fragment fragment = new PostFragment();
+        Fragment fragment = new PostFragment("true");
         ft.add(R.id.container, fragment);
         ft.commit();
     }

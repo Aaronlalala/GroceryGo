@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -16,19 +17,19 @@
         <com.google.android.gms.maps.MapView
             android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/ongoing_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map_frag"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        app:layout_constraintTop_toBottomOf="@+id/map_frag">
 
         <TextView
             android:id="@+id/textView2"
@@ -65,14 +66,14 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/ongoing_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <ImageView
             android:id="@+id/avatar"
@@ -199,15 +200,16 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/ongoing_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <ImageView
             android:id="@+id/imageView3"
@@ -245,69 +247,113 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
-        android:id="@+id/join"
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/join"-->
+    <!--        android:layout_width="60dp"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:background="@drawable/ongoing_button"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/contact_driver1"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        android:layout_marginBottom="30dp"-->
+    <!--        android:visibility="gone">-->
+    <!--        <androidx.appcompat.widget.AppCompatImageView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginStart="4dp"-->
+    <!--            android:layout_marginLeft="4dp"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:src="@drawable/ic_request_post"-->
+    <!--            android:tint="@color/white" />-->
+
+    <!--    </FrameLayout>-->
+
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/contact_driver1"-->
+    <!--        android:layout_width="60dp"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:background="@drawable/ongoing_button"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/rate_driver"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/join"-->
+    <!--        android:layout_marginBottom="30dp">-->
+    <!--        <androidx.appcompat.widget.AppCompatImageView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginStart="4dp"-->
+    <!--            android:layout_marginLeft="4dp"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:src="@drawable/ic_message_black"-->
+    <!--            android:tint="@color/white" />-->
+    <!--    </FrameLayout>-->
+
+    <TextView
+        android:id="@+id/contact_driver_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/ongoing_button"
+        android:gravity="center"
+        android:text="Contact Driver"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/contact_driver1"
+        app:layout_constraintEnd_toStartOf="@+id/rate_driver_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/join_button"
+        android:layout_marginBottom="35dp"/>
+
+    <TextView
+        android:id="@+id/join_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ongoing_button"
+        android:gravity="center"
+        android:text="Join"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/contact_driver_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"
-        android:visibility="gone">
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_request_post"
-            android:tint="@color/white" />
+        android:layout_marginBottom="35dp"
+        android:visibility="gone"/>
 
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/contact_driver1"
+    <TextView
+        android:id="@+id/rate_driver_button"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/ongoing_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rate_driver"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/join"
-        android:layout_marginBottom="30dp">
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_message_black"
-            android:tint="@color/white" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/rate_driver"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/ongoing_button"
+        android:gravity="center"
+        android:text="Rate Driver"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/contact_driver1"
-        android:layout_marginBottom="30dp"
-        android:visibility="gone">
+        app:layout_constraintStart_toEndOf="@+id/contact_driver_button"
+        android:layout_marginBottom="35dp"
+        android:visibility="gone"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_review"
-            android:tint="@color/white"/>
-    </FrameLayout>
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/rate_driver"-->
+    <!--        android:layout_width="60dp"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:background="@drawable/ongoing_button"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/contact_driver1"-->
+    <!--        android:layout_marginBottom="30dp"-->
+    <!--        android:visibility="gone">-->
+
+    <!--        <androidx.appcompat.widget.AppCompatImageView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginStart="4dp"-->
+    <!--            android:layout_marginLeft="4dp"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:src="@drawable/ic_review"-->
+    <!--            android:tint="@color/white"/>-->
+    <!--    </FrameLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
