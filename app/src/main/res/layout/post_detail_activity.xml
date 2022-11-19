@@ -15,12 +15,14 @@
             android:background="@drawable/back"
             android:layout_marginTop="6dp"
             />
-
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/post_detail_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </FrameLayout>
-</LinearLayout>
 
+    </FrameLayout>
+
+
+</LinearLayout>
