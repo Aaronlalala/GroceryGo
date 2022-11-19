@@ -50,6 +50,13 @@ public class PostFragment extends Fragment {
     public PostAdapter myPostAdapter;
     public List<PostData> postList;
     String[] sortOptions = { "Sort by time", "Sort by distance"};
+    private String isHistory;
+
+    public PostFragment() {};
+    public PostFragment(String isHistory) {
+        this.isHistory = isHistory;
+    }
+
 
     @Nullable
     @Override
@@ -75,6 +82,11 @@ public class PostFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(getActivity(), PostDetailActivity.class);
+                if (isHistory == null) {
+                    intent.putExtra("activity", "post");
+                } else {
+                    intent.putExtra("activity", "history");
+                }
                 startActivity(intent);
             }
 

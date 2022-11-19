@@ -3,13 +3,17 @@ package edu.illinois.cs465.grocerygo.layout.activity;
 import static edu.illinois.cs465.grocerygo.constant.Constant.POST_FRAGMENT_TAG;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -21,6 +25,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.layout.fragment.OngoingFragment;
 
 public class PostDetailActivity extends AppCompatActivity {
 
@@ -64,23 +69,17 @@ public class PostDetailActivity extends AppCompatActivity {
             this.startActivity(intent);
         });
 
-        FrameLayout ContactDriverBtn = findViewById(R.id.contact_driver);
-        ContactDriverBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ChatActivity.class);
-            startActivity(intent);
-        });
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-        FrameLayout JoinBtn = findViewById(R.id.join);
-        JoinBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ChatActivity.class);
-            startActivity(intent);
-        });
-    }
+        Bundle extras = getIntent().getExtras();
+        Fragment fragment;
+        if (extras != null) {
+            fragment = new OngoingFragment(extras.getString("activity"));
+        } else {
+            fragment = new OngoingFragment();
+        }
 
-
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        LatLng cur = new LatLng(40.116890, -88.222130);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cur, 15));
-        googleMap.addMarker(new MarkerOptions().position(cur));
+        ft.add(R.id.post_detail_container, fragment);
+        ft.commit();
     }
 }
