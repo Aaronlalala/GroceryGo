@@ -92,7 +92,7 @@ public class PostFragment extends Fragment {
                 intent.putExtra("destination", pd.destination);
                 intent.putExtra("startTime", pd.time);
                 intent.putExtra("imageId", pd.imageId);
-                intent.putExtra("distanceToDes", pd.distance);
+                intent.putExtra("distanceToDriver", pd.distance);
                 intent.putExtra("remark", pd.remark);
 
                 startActivity(intent);

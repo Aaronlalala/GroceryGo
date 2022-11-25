@@ -38,14 +38,30 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
     private MapView mMap;
     private GoogleMap googleMap;
     private String activity;
+    private String userName;
+    private String distanceToDriver;
+    private String destination;
+    private String startTime;
+    private int imageId;
+    private String remark;
 
     // Default constructor for OngoingFragment.
     public OngoingFragment() {
 
     }
     // Pass in a isPost tell whether use this fragment in PostDetailActivity
-    public OngoingFragment(String activity) {
-        this.activity = activity;
+//    public OngoingFragment(String activity) {
+//        this.activity = activity;
+//    }
+    public OngoingFragment( Bundle extras) {
+        this.activity = extras.getString("activity");
+        this.userName = extras.getString("userName");
+        this.distanceToDriver = extras.getString("distanceToDriver");
+        this.destination = extras.getString("destination");
+        this.startTime = extras.getString("startTime");
+        this.imageId = extras.getInt("imageId");
+        //this.imageId = Integer.valueOf(extras.getString("imageId"));
+        this.remark = extras.getString("remark");
     }
 
     @Nullable
@@ -55,6 +71,7 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
         mMap = view.findViewById(R.id.map);
         mMap.onCreate(savedInstanceState);
         mMap.onResume();
+        initDriverData(view);
         MapsInitializer.initialize(getActivity());
         int errorCode = GooglePlayServicesUtil
                 .isGooglePlayServicesAvailable(this.getActivity());
@@ -72,6 +89,21 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
             }
         }
         return view;
+    }
+
+    private void initDriverData(View view){
+        TextView userNameTV = view.findViewById(R.id.user_id);
+        userNameTV.setText(this.userName);
+        TextView distanceToDriverTV = view.findViewById(R.id.distanceToDriver);
+        distanceToDriverTV.setText(this.distanceToDriver);
+        TextView destinationTV = view.findViewById(R.id.destination);
+        destinationTV.setText(this.destination);
+        TextView startTimeTV = view.findViewById(R.id.startTime);
+        startTimeTV.setText(this.startTime);
+        ImageView image = view.findViewById(R.id.avatar);
+        image.setImageResource(this.imageId);
+        TextView remarkTV = view.findViewById(R.id.remarkDetail);
+        remarkTV.setText(this.remark);
     }
 
     @Override

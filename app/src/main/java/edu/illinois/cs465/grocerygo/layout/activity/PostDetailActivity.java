@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,13 +39,15 @@ public class PostDetailActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         Fragment fragment;
         if (extras != null) {
-            fragment = new OngoingFragment(extras.getString("activity"));
+            fragment = new OngoingFragment(extras);
         } else {
             fragment = new OngoingFragment();
         }
         Log.d("detail_tag", extras.getString("startTime"));
         Log.d("detail_tag", extras.getString("destination"));
-
+//        View rootView = fragment.getView();
+//        TextView userId = rootView.findViewById(R.id.user_id);
+        //userId.setText(extras.getString("userName"));
         ft.add(R.id.post_detail_container, fragment);
         ft.commit();
     }
