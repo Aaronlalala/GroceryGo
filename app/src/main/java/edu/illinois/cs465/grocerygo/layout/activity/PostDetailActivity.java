@@ -5,6 +5,7 @@ import static edu.illinois.cs465.grocerygo.constant.Constant.POST_FRAGMENT_TAG;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -41,6 +42,8 @@ public class PostDetailActivity extends AppCompatActivity {
         } else {
             fragment = new OngoingFragment();
         }
+        Log.d("detail_tag", extras.getString("startTime"));
+        Log.d("detail_tag", extras.getString("destination"));
 
         ft.add(R.id.post_detail_container, fragment);
         ft.commit();

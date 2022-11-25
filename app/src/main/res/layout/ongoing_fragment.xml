@@ -31,34 +31,94 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/map_frag">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="220dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/ongoing_top_component"
-            android:gravity="center"
-            android:text="Distance to the driver:"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            >
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/ongoing_drawable1"
+                android:gravity="center"
+                android:text="Distance to the driver:"
+                android:textColor="#67605D"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="260dp"
+            <TextView
+                android:id="@+id/distanceToDriver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ongoing_top_component"
+                android:layout_marginLeft="5dp"
+                android:paddingHorizontal="5dp"
+                android:gravity="center"
+                android:text="2.3 m"
+                android:textColor="@color/light_font"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/ongoing_top_component"
+            android:orientation="horizontal"
+            android:paddingTop="45dp"
+            >
 
-            android:gravity="center"
-            android:text="Distance to the destination:"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/ongoing_drawable1"
+                android:gravity="center"
+                android:text="Distance to the destination:"
+                android:textColor="#67605D"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/distanceToDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ongoing_top_component"
+                android:layout_marginLeft="5dp"
+                android:paddingHorizontal="5dp"
+                android:gravity="center"
+                android:text="2.3 m"
+                android:textColor="@color/light_font"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/textView3"-->
+<!--            android:layout_width="260dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:background="@drawable/ongoing_top_component"-->
+
+<!--            android:gravity="center"-->
+<!--            android:text="Distance to the destination:"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -107,11 +167,11 @@
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:background="@drawable/ongoing_top_component"
+            android:background="@drawable/ongoing_drawable1"
             android:gravity="center"
             android:text="Email Verified"
-            android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textColor="#67605D"
+            android:textSize="14dp"
             app:layout_constraintBottom_toTopOf="@+id/driver_license"
             app:layout_constraintStart_toEndOf="@+id/user_id"
             app:layout_constraintTop_toTopOf="parent" />
@@ -132,10 +192,11 @@
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:background="@drawable/ongoing_top_component"
+            android:background="@drawable/ongoing_drawable1"
             android:gravity="center"
+            android:textSize="14dp"
             android:text="Driver License"
-            android:textColor="@color/white"
+            android:textColor="#67605D"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/user_id"
             app:layout_constraintTop_toBottomOf="@+id/email" />

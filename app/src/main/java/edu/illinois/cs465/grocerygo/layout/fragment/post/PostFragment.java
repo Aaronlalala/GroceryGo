@@ -87,6 +87,14 @@ public class PostFragment extends Fragment {
                 } else {
                     intent.putExtra("activity", "history");
                 }
+                PostData pd = postList.get(position);
+                intent.putExtra("userName", pd.name);
+                intent.putExtra("destination", pd.destination);
+                intent.putExtra("startTime", pd.time);
+                intent.putExtra("imageId", pd.imageId);
+                intent.putExtra("distanceToDes", pd.distance);
+                intent.putExtra("remark", pd.remark);
+
                 startActivity(intent);
             }
 
