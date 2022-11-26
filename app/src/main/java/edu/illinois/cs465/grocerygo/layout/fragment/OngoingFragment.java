@@ -44,6 +44,7 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
     private String startTime;
     private int imageId;
     private String remark;
+    private boolean isDetail;
 
     // Default constructor for OngoingFragment.
     public OngoingFragment() {
@@ -53,7 +54,7 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
 //    public OngoingFragment(String activity) {
 //        this.activity = activity;
 //    }
-    public OngoingFragment( Bundle extras) {
+    public OngoingFragment( Bundle extras, boolean isDetail) {
         this.activity = extras.getString("activity");
         this.userName = extras.getString("userName");
         this.distanceToDriver = extras.getString("distanceToDriver");
@@ -62,6 +63,7 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
         this.imageId = extras.getInt("imageId");
         //this.imageId = Integer.valueOf(extras.getString("imageId"));
         this.remark = extras.getString("remark");
+        this.isDetail = isDetail;
     }
 
     @Nullable
@@ -71,7 +73,7 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
         mMap = view.findViewById(R.id.map);
         mMap.onCreate(savedInstanceState);
         mMap.onResume();
-        initDriverData(view);
+        if(isDetail)initDriverData(view);
         MapsInitializer.initialize(getActivity());
         int errorCode = GooglePlayServicesUtil
                 .isGooglePlayServicesAvailable(this.getActivity());

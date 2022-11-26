@@ -39,7 +39,7 @@ public class PostDetailActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         Fragment fragment;
         if (extras != null) {
-            fragment = new OngoingFragment(extras);
+            fragment = new OngoingFragment(extras, true);
         } else {
             fragment = new OngoingFragment();
         }

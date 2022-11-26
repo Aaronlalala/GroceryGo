@@ -9,7 +9,7 @@
     <FrameLayout
         android:id="@+id/map_frag"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="190dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -308,7 +308,7 @@
             <TextView
                 android:id="@+id/shoppingTime"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="6dp"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
@@ -487,7 +487,7 @@
         app:layout_constraintEnd_toStartOf="@+id/rate_driver_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/join_button"
-        android:layout_marginBottom="35dp"/>
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/join_button"
@@ -502,7 +502,7 @@
         app:layout_constraintEnd_toStartOf="@+id/contact_driver_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="20dp"
         android:visibility="gone"/>
 
     <TextView
@@ -518,7 +518,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/contact_driver_button"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="20dp"
         android:visibility="gone"/>
 
     <!--    <FrameLayout-->
