@@ -1,13 +1,11 @@
 package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
-import static edu.illinois.cs465.grocerygo.constant.Constant.POST_FRAGMENT_TAG;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,17 +16,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -39,7 +38,7 @@ import java.util.Date;
 import java.util.List;
 
 import edu.illinois.cs465.grocerygo.R;
-import edu.illinois.cs465.grocerygo.layout.activity.PostActivity;
+import edu.illinois.cs465.grocerygo.event.PostEvent;
 import edu.illinois.cs465.grocerygo.layout.activity.PostDetailActivity;
 import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
 
@@ -63,8 +62,8 @@ public class PostFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return inflater.inflate(R.layout.post_fragment, container, false);
         initDataset();
-        View rootView = initView(inflater,container);
-        return  rootView;
+        EventBus.getDefault().register(this);
+        return initView(inflater,container);
     }
 
     private View initView(LayoutInflater inflater, ViewGroup container) {
@@ -205,5 +204,18 @@ public class PostFragment extends Fragment {
         this.postList.add(pd3);
         this.postList.add(pd4);
         this.postList.add(pd5);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onPostMsg(PostEvent postEvent) {
+        PostData postData = new PostData(postEvent.distance, R.drawable.img, postEvent.name, postEvent.time, postEvent.remark, postEvent.destination, postEvent.distance + " m");
+        this.postList.add(0,postData);
+        myPostAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
     }
 }

@@ -5,16 +5,20 @@ import android.app.Dialog;
 import android.os.Bundle;
 
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.Calendar;
 import java.util.Date;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.event.PostEvent;
 import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
 
 public class PostActivity extends AbstractActivity {
@@ -31,11 +35,16 @@ public class PostActivity extends AbstractActivity {
         TextView datePicker = findViewById(R.id.date_picker);
         TextView timePickerFrom = findViewById(R.id.time_picker_from);
         TextView timePickerTo = findViewById(R.id.time_picker_to);
+        EditText remark = findViewById(R.id.remark);
+        EditText dest = findViewById(R.id.destination);
         dismissBtn.setOnClickListener(view -> this.finish());
         postBtn.setOnClickListener(view -> {
             String fromTime = (String) timePickerFrom.getText();
             String toTime = (String) timePickerTo.getText();
             if (check(fromTime, toTime)) {
+                EventBus.getDefault().post(new PostEvent(1.1, "Elysia",
+                        datePicker.getText().toString() + fromTime,
+                        remark.getText().toString(), dest.getText().toString()));
                 this.finish();
             } else {
                 Toast.makeText(this, R.string.time_toast, Toast.LENGTH_SHORT).show();
