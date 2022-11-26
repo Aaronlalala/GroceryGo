@@ -27,7 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import edu.illinois.cs465.grocerygo.R;
-import edu.illinois.cs465.grocerygo.layout.fragment.MailFragment;
+import edu.illinois.cs465.grocerygo.layout.fragment.mail.MailFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.OngoingFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.post.PostFragment;
 
