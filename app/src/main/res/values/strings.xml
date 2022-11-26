@@ -60,4 +60,18 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="you_can_leave_your_tips">You can Leave Your Tips</string>
+
+
+    <string-array name="contact_name">
+        <item>James</item>
+        <item>Robert</item>
+        <item>John</item>
+        <item>Michael</item>
+        <item>Christopher</item>
+        <item>Andrew</item>
+        <item>Kimberly</item>
+        <item>Michelle</item>
+        <item>Stephanie</item>
+        <item>Sharon</item>
+    </string-array>
 </resources>
