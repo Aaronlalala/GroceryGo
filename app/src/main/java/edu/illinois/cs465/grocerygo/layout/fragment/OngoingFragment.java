@@ -54,7 +54,7 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
 //    public OngoingFragment(String activity) {
 //        this.activity = activity;
 //    }
-    public OngoingFragment( Bundle extras, boolean isDetail) {
+    public OngoingFragment(Bundle extras, boolean isDetail) {
         this.activity = extras.getString("activity");
         this.userName = extras.getString("userName");
         this.distanceToDriver = extras.getString("distanceToDriver");
@@ -114,10 +114,12 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
 
         TextView joinBtn = getView().findViewById(R.id.join_button);
         TextView rateBtn = getView().findViewById(R.id.rate_driver_button);
+        TextView plateNumber = getView().findViewById(R.id.textView);
         if (this.activity == null) {
 
         } else if (this.activity.equals("post")) {
             joinBtn.setVisibility(View.VISIBLE);
+            plateNumber.setVisibility(View.INVISIBLE);
         } else if (this.activity.equals("history")) {
             rateBtn.setVisibility(View.VISIBLE);
         }

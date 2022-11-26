@@ -14,8 +14,17 @@
         android:padding="12dp"
         android:textColor="@color/white"
         android:textSize="13dp"
+        app:layout_constraintEnd_toStartOf="@+id/messageImage"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="5dp"
+        app:layout_constraintWidth_percent="0.7" />
 
+    <ImageView
+        android:id="@+id/messageImage"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.8"/>
+        app:srcCompat="@drawable/girl" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

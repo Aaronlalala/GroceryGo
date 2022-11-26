@@ -22,13 +22,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 <!--        Replace action bar with tool bar in main activity-->
-        <activity
-            android:name=".layout.activity.ChattingActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <!-- Replace action bar with tool bar in main activity -->
         <activity
             android:name=".layout.activity.MainActivity"
