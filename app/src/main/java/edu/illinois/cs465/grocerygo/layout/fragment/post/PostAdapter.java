@@ -2,6 +2,7 @@ package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -86,7 +88,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         viewHolder.theRemark.setText(postList.get(position).remark);
         viewHolder.theDestination.setText(postList.get(position).destination);
         viewHolder.theDistance.setText(postList.get(position).distance);
-
+        @ColorInt int color = Color.parseColor("#60F1C586");
+        if(postList.get(position).isMypost) viewHolder.root.setBackgroundColor(color);
         viewHolder.root.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

@@ -22,6 +22,7 @@ import edu.illinois.cs465.grocerygo.event.PostEvent;
 import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
 
 public class PostActivity extends AbstractActivity {
+    public String date;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class PostActivity extends AbstractActivity {
             String toTime = (String) timePickerTo.getText();
             if (check(fromTime, toTime)) {
                 EventBus.getDefault().post(new PostEvent(1.1, "Elysia",
-                        datePicker.getText().toString() + fromTime,
+                        date + " " + fromTime,
                         remark.getText().toString(), dest.getText().toString()));
                 this.finish();
             } else {
@@ -62,9 +63,11 @@ public class PostActivity extends AbstractActivity {
                     new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                            datePicker.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            datePicker.setText( (monthOfYear + 1) + "-" + dayOfMonth+ "-" + year);
+                            date = (monthOfYear + 1) + "-" + dayOfMonth;
                         }
                     }, mYear, mMonth, mDay);
+
             datePickerDialog.show();
         });
         timePickerFrom.setOnClickListener(view -> {

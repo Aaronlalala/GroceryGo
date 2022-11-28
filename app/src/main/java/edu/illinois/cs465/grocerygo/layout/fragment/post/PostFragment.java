@@ -38,6 +38,7 @@ import java.util.Date;
 import java.util.List;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.constant.Constant;
 import edu.illinois.cs465.grocerygo.event.PostEvent;
 import edu.illinois.cs465.grocerygo.layout.activity.PostDetailActivity;
 import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
@@ -50,6 +51,7 @@ public class PostFragment extends Fragment {
     public List<PostData> postList;
     String[] sortOptions = { "Sort by time", "Sort by distance"};
     private String isHistory;
+    private PostData myPost;
 
     public PostFragment() {};
     public PostFragment(String isHistory) {
@@ -126,6 +128,7 @@ public class PostFragment extends Fragment {
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
+                        if(a.isMypost || b.isMypost) return a.isMypost==true? -1 : 1;
                         return aDate.compareTo(bDate);
                     });
                     myPostAdapter.notifyDataSetChanged();
@@ -135,6 +138,7 @@ public class PostFragment extends Fragment {
                         int res;
                         if(a.distanceDouble - b.distanceDouble<0) res = -1;
                         else res = 1;
+                        if(a.isMypost || b.isMypost) return a.isMypost==true? -1 : 1;
                         return res;
                     });
                     myPostAdapter.notifyDataSetChanged();
@@ -199,25 +203,29 @@ public class PostFragment extends Fragment {
     }
 
     private void initDataset() {
-        this.postList = new ArrayList<>();
-        //PostData pd2 = new PostData(R.drawable.girl, "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.9 m");
-        PostData pd2 = new PostData(5.3, R.drawable.man, "Jake", "10-11 11:10", "Plan to go tomorrow", "Costco", " 5.3 m");
-        PostData pd = new PostData(3.3, R.drawable.girl, "Iris", "10-12 13:12", "I want somebody to join me", "Walmart", " 3.3 m");
-        PostData pd3 = new PostData(1.2, R.drawable.man, "John", "11-20 13:12", "Anyone want to join?", "Walmart", " 1.2 m");
-        PostData pd4 = new PostData(6.0, R.drawable.girl, "Lucy", "09-25 13:12", "I prefer tips > <", "Walmart", " 6.0 m");
-        PostData pd5 = new PostData(4.5, R.drawable.man, "Oven", "12-08 13:12", "Hang out with me!", "Walmart", " 4.5 m");
+            this.postList = new ArrayList<>();
+            //PostData pd2 = new PostData(R.drawable.girl, "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.9 m");
+            PostData pd2 = new PostData(5.3, R.drawable.man, "Jake", "10-11 11:10", "Plan to go tomorrow", "Costco", " 5.3 m", false);
+            PostData pd = new PostData(3.3, R.drawable.girl, "Iris", "10-12 13:12", "I want somebody to join me", "Walmart", " 3.3 m", false);
+            PostData pd3 = new PostData(1.2, R.drawable.man, "John", "11-20 13:12", "Anyone want to join?", "Walmart", " 1.2 m", false);
+            PostData pd4 = new PostData(6.0, R.drawable.girl, "Lucy", "09-25 13:12", "I prefer tips > <", "Walmart", " 6.0 m", false);
+            PostData pd5 = new PostData(4.5, R.drawable.man, "Oven", "12-08 13:12", "Hang out with me!", "Walmart", " 4.5 m",false);
 
-        this.postList.add(pd2);
-        this.postList.add(pd);
-        this.postList.add(pd3);
-        this.postList.add(pd4);
-        this.postList.add(pd5);
+            this.postList.add(pd2);
+            this.postList.add(pd);
+            this.postList.add(pd3);
+            this.postList.add(pd4);
+            this.postList.add(pd5);
+            if(Constant.myPost != null){
+                this.postList.add(Constant.myPost);
+            }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onPostMsg(PostEvent postEvent) {
-        PostData postData = new PostData(postEvent.distance, R.drawable.img, postEvent.name, postEvent.time, postEvent.remark, postEvent.destination, postEvent.distance + " m");
+        PostData postData = new PostData(postEvent.distance, R.drawable.img, postEvent.name, postEvent.time, postEvent.remark, postEvent.destination, postEvent.distance + " m", true);
         this.postList.add(0,postData);
+        Constant.myPost = postData;
         myPostAdapter.notifyDataSetChanged();
     }
 
