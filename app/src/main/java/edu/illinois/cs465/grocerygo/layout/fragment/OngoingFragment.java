@@ -27,9 +27,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.greenrobot.eventbus.EventBus;
 import org.w3c.dom.Text;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.event.DeleteEvent;
+import edu.illinois.cs465.grocerygo.event.PostEvent;
 import edu.illinois.cs465.grocerygo.layout.activity.ChatActivity;
 import edu.illinois.cs465.grocerygo.layout.activity.RatingActivity;
 
@@ -112,16 +115,22 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        TextView contactBtn = getView().findViewById(R.id.contact_driver_button);
         TextView joinBtn = getView().findViewById(R.id.join_button);
         TextView rateBtn = getView().findViewById(R.id.rate_driver_button);
         TextView plateNumber = getView().findViewById(R.id.textView);
+        ImageView deleteBtn = getView().findViewById(R.id.delete_button);
         if (this.activity == null) {
-
+            contactBtn.setVisibility(View.VISIBLE);
         } else if (this.activity.equals("post")) {
+            contactBtn.setVisibility(View.VISIBLE);
             joinBtn.setVisibility(View.VISIBLE);
             plateNumber.setVisibility(View.INVISIBLE);
         } else if (this.activity.equals("history")) {
+            contactBtn.setVisibility(View.VISIBLE);
             rateBtn.setVisibility(View.VISIBLE);
+        } else if(this.activity.equals("myPost")){
+            deleteBtn.setVisibility(View.VISIBLE);
         }
 
         SupportMapFragment mapFragment= (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
@@ -143,6 +152,11 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
         RatingBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), RatingActivity.class);
             startActivity(intent);
+        });
+
+        deleteBtn.setOnClickListener(view1 -> {
+            EventBus.getDefault().post(new DeleteEvent(true));
+            getActivity().finish();
         });
     }
 

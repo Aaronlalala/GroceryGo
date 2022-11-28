@@ -39,6 +39,7 @@ import java.util.List;
 
 import edu.illinois.cs465.grocerygo.R;
 import edu.illinois.cs465.grocerygo.constant.Constant;
+import edu.illinois.cs465.grocerygo.event.DeleteEvent;
 import edu.illinois.cs465.grocerygo.event.PostEvent;
 import edu.illinois.cs465.grocerygo.layout.activity.PostDetailActivity;
 import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
@@ -50,12 +51,12 @@ public class PostFragment extends Fragment {
     public PostAdapter myPostAdapter;
     public List<PostData> postList;
     String[] sortOptions = { "Sort by time", "Sort by distance"};
-    private String isHistory;
+    private String activityType;
     private PostData myPost;
 
     public PostFragment() {};
-    public PostFragment(String isHistory) {
-        this.isHistory = isHistory;
+    public PostFragment(String activityType) {
+        this.activityType = activityType;
     }
 
 
@@ -83,10 +84,14 @@ public class PostFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(getActivity(), PostDetailActivity.class);
-                if (isHistory == null) {
+                if (activityType == null) {
                     intent.putExtra("activity", "post");
-                } else {
+                }
+                else {
                     intent.putExtra("activity", "history");
+                }
+               if(postList.get(position).isMypost){
+                    intent.putExtra("activity", "myPost");
                 }
                 PostData pd = postList.get(position);
                 intent.putExtra("userName", pd.name);
@@ -227,6 +232,15 @@ public class PostFragment extends Fragment {
         this.postList.add(0,postData);
         Constant.myPost = postData;
         myPostAdapter.notifyDataSetChanged();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onDeleteMyPostMsg(DeleteEvent de) {
+        if(de.deleteMypost){
+            this.postList.remove(Constant.myPost);
+            Constant.myPost = null;
+            myPostAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override

@@ -35,8 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="10dp"
-            >
+            android:paddingTop="10dp">
+
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="220dp"
@@ -55,10 +55,10 @@
                 android:id="@+id/distanceToDriver"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ongoing_top_component"
                 android:layout_marginLeft="5dp"
-                android:paddingHorizontal="5dp"
+                android:background="@drawable/ongoing_top_component"
                 android:gravity="center"
+                android:paddingHorizontal="5dp"
                 android:text="2.3 m"
                 android:textColor="@color/light_font"
                 android:textSize="20dp"
@@ -72,8 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="45dp"
-            >
+            android:paddingTop="45dp">
 
             <TextView
                 android:id="@+id/textView3"
@@ -93,10 +92,10 @@
                 android:id="@+id/distanceToDes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ongoing_top_component"
                 android:layout_marginLeft="5dp"
-                android:paddingHorizontal="5dp"
+                android:background="@drawable/ongoing_top_component"
                 android:gravity="center"
+                android:paddingHorizontal="5dp"
                 android:text="2.3 m"
                 android:textColor="@color/light_font"
                 android:textSize="20dp"
@@ -105,20 +104,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
-<!--        <TextView-->
-<!--            android:id="@+id/textView3"-->
-<!--            android:layout_width="260dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:background="@drawable/ongoing_top_component"-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView3"-->
+        <!--            android:layout_width="260dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginLeft="20dp"-->
+        <!--            android:background="@drawable/ongoing_top_component"-->
 
-<!--            android:gravity="center"-->
-<!--            android:text="Distance to the destination:"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="20dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="Distance to the destination:"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="20dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -194,9 +193,9 @@
             android:layout_marginLeft="60dp"
             android:background="@drawable/ongoing_drawable1"
             android:gravity="center"
-            android:textSize="14dp"
             android:text="Driver License"
             android:textColor="#67605D"
+            android:textSize="14dp"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/user_id"
             app:layout_constraintTop_toBottomOf="@+id/email" />
@@ -281,117 +280,117 @@
                 android:id="@+id/clockItem"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
                 android:src="@drawable/ic_clock" />
 
             <TextView
                 android:id="@+id/startTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/clockItem"
-                android:text="11-20 13:12" />
+                android:text="11-20 13:12"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/shoppingItem"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/startTime"
                 android:src="@drawable/ic_cart" />
 
             <TextView
                 android:id="@+id/shoppingTime"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="6dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/shoppingItem"
-                android:text="2 h" />
+                android:text="2 h"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/numberItem"
-                android:layout_marginTop="20dp"
-
                 android:layout_width="40dp"
+
                 android:layout_height="40dp"
-                android:layout_alignLeft="@+id/clockItem"
                 android:layout_below="@+id/clockItem"
+                android:layout_alignLeft="@+id/clockItem"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/ic_seat" />
 
             <TextView
                 android:id="@+id/number"
-                android:layout_marginTop="35dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/startTime"
                 android:layout_alignLeft="@+id/startTime"
-                android:text="3 / 4" />
+                android:layout_marginTop="35dp"
+                android:text="3 / 4"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/desItem"
-                android:layout_marginTop="20dp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_alignLeft="@+id/shoppingItem"
                 android:layout_below="@+id/shoppingItem"
+                android:layout_alignLeft="@+id/shoppingItem"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/marker" />
 
             <TextView
                 android:id="@+id/destination"
-                android:layout_marginTop="35dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/shoppingTime"
                 android:layout_alignLeft="@+id/shoppingTime"
-                android:text="Costco" />
+                android:layout_marginTop="35dp"
+                android:text="Costco"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
 
         </RelativeLayout>
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView3"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:src="@drawable/ic_clock"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/imageView2"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView3"-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:src="@drawable/ic_clock"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/imageView2"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:src="@drawable/ic_clock"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/imageView2"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/imageView3"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView"-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:src="@drawable/ic_clock"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/imageView2"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/imageView3"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView2"-->
-<!--            android:layout_width="40dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:src="@drawable/ic_cart"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/imageView3"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView2"-->
+        <!--            android:layout_width="40dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:src="@drawable/ic_cart"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/imageView3"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -401,8 +400,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="5dp"
         android:background="@drawable/ongoing_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -419,15 +418,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:textSize="18dp"
-                android:paddingVertical="5dp"
-                android:paddingHorizontal="10dp"
-                android:textStyle="bold"
                 android:background="@drawable/ongoing_drawable1"
-                android:text="This is the driver's remark" />
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="This is the driver's remark"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -474,6 +472,19 @@
     <!--            android:tint="@color/white" />-->
     <!--    </FrameLayout>-->
 
+    <ImageView
+        android:id="@+id/delete_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:src="@drawable/delete"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/contact_driver_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toEndOf="@+id/join_button" />
+
     <TextView
         android:id="@+id/contact_driver_button"
         android:layout_width="75dp"
@@ -481,13 +492,14 @@
         android:background="@drawable/ongoing_button"
         android:gravity="center"
         android:text="Contact Driver"
-        android:textSize="16dp"
         android:textColor="@color/white"
+        android:textSize="16dp"
+        android:visibility="gone"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rate_driver_button"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/join_button"
-        android:layout_marginBottom="20dp"/>
+        app:layout_constraintStart_toEndOf="@+id/delete_button" />
 
     <TextView
         android:id="@+id/join_button"
@@ -496,14 +508,14 @@
         android:background="@drawable/ongoing_button"
         android:gravity="center"
         android:text="Join"
-        android:textSize="16dp"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/contact_driver_button"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16dp"
+        android:visibility="gone"
         android:layout_marginBottom="20dp"
-        android:visibility="gone"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/delete_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/rate_driver_button"
@@ -512,14 +524,14 @@
         android:background="@drawable/ongoing_button"
         android:gravity="center"
         android:text="Rate Driver"
-        android:textSize="16dp"
         android:textColor="@color/white"
+        android:textSize="16dp"
+        android:visibility="gone"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/contact_driver_button"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone"/>
+        app:layout_constraintStart_toEndOf="@+id/contact_driver_button" />
 
     <!--    <FrameLayout-->
     <!--        android:id="@+id/rate_driver"-->
