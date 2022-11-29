@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="75dp"
-    android:layout_marginBottom="-45dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="3dp"
     >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/secondary_darker"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:backgroundTint="#F6D7B5"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
 
 
-
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="8dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +48,7 @@
                 android:layout_marginStart="15dp"
                 android:textStyle="bold"
                 android:textSize="30sp"
-                android:textColor="@color/white"
+                android:textColor="#9F000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/contact_imageView"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -203,21 +205,30 @@ public class PostFragment extends Fragment {
 //            dialog.show();
 //        });
 //        customizeDialog.setTitle("Filter posts");
-        customizeDialog.setView(dialogView);
-        customizeDialog.setPositiveButton("OK",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // 获取EditView中的输入内容
-                        EditText destination = (EditText) dialogView.findViewById(R.id.destination);
-                        EditText duration = (EditText) dialogView.findViewById(R.id.duration);
-                        String dateStr = month + "-" + day;
-                        String dateTimeStr = month + "-" + day + " " + timePickerFrom.getText();
-                        Log.d("tag5", dateTimeStr);
-                        EventBus.getDefault().post(new FilterEvent(dateStr, dateTimeStr, destination.getText().toString()));
-                    }
-                });
-        customizeDialog.show();
+
+
+        Button clearBtn = dialogView.findViewById(R.id.clear);
+        Button OKBtn = dialogView.findViewById(R.id.ok);
+        Dialog d = customizeDialog.setView(dialogView).create();
+        OKBtn.setOnClickListener(view -> {
+            EditText destination = (EditText) dialogView.findViewById(R.id.destination);
+            EditText duration = (EditText) dialogView.findViewById(R.id.duration);
+            String dateStr = month + "-" + day;
+            String dateTimeStr = month + "-" + day + " " + timePickerFrom.getText();
+            Log.d("tag5", dateTimeStr);
+            EventBus.getDefault().post(new FilterEvent(dateStr, dateTimeStr, destination.getText().toString()));
+            d.dismiss();
+        });
+
+        clearBtn.setOnClickListener(view -> {
+            EditText destination = (EditText) dialogView.findViewById(R.id.destination);
+            EditText duration = (EditText) dialogView.findViewById(R.id.duration);
+            timePickerFrom.setText("");
+            datePicker.setText("");
+            destination.setText("");
+            duration.setText("");
+        });
+        d.show();
     }
 
     private void initDataset() {

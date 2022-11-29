@@ -87,8 +87,8 @@
 
             <TextView
                 android:id="@+id/theDestination"
-                android:backgroundTint="#25EABC84"
                 android:paddingStart="8dp"
+                android:paddingLeft="8dp"
                 android:paddingEnd="8dp"
                 android:padding="5dp"
                 android:layout_alignParentLeft = "true"
@@ -98,7 +98,7 @@
                 android:text="Costco"
                 android:textFontWeight="500"
                 android:textAllCaps="false"
-                android:background="@drawable/ongoing_drawable1"
+                android:background="@drawable/post_item_destination"
                 android:textColor="#0C0909"
                 android:textSize="14sp" />
 
