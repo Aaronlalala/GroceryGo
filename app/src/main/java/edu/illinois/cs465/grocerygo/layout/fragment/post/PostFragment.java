@@ -36,10 +36,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import edu.illinois.cs465.grocerygo.R;
 import edu.illinois.cs465.grocerygo.constant.Constant;
 import edu.illinois.cs465.grocerygo.event.DeleteEvent;
+import edu.illinois.cs465.grocerygo.event.FilterEvent;
 import edu.illinois.cs465.grocerygo.event.PostEvent;
 import edu.illinois.cs465.grocerygo.layout.activity.PostDetailActivity;
 import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
@@ -53,6 +55,8 @@ public class PostFragment extends Fragment {
     String[] sortOptions = { "Sort by time", "Sort by distance"};
     private String activityType;
     private PostData myPost;
+    public int month;
+    public int day;
 
     public PostFragment() {};
     public PostFragment(String activityType) {
@@ -65,6 +69,7 @@ public class PostFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return inflater.inflate(R.layout.post_fragment, container, false);
         initDataset();
+        Log.d("tagCreate", "cccc");
         EventBus.getDefault().register(this);
         return initView(inflater,container);
     }
@@ -157,18 +162,18 @@ public class PostFragment extends Fragment {
 
         Button filterButton = rootView.findViewById(R.id.filter);
         filterButton.setOnClickListener(view -> {
-            showFilterDialog();
+            showFilterDialog(this.postList);
         });
 
         return  rootView;
     }
 
-    private void showFilterDialog(){
+    private void showFilterDialog(List<PostData> thePostList){
         AlertDialog.Builder customizeDialog = new AlertDialog.Builder(getContext());
         final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.filter_dialog,null);
         TextView datePicker = dialogView.findViewById(R.id.date_picker);
         TextView timePickerFrom = dialogView.findViewById(R.id.time_picker_from);
-        TextView timePickerTo = dialogView.findViewById(R.id.time_picker_to);
+        //TextView timePickerTo = dialogView.findViewById(R.id.time_picker_to);
 
         datePicker.setOnClickListener(view -> {
             //current date
@@ -177,11 +182,14 @@ public class PostFragment extends Fragment {
             int mMonth = c.get(Calendar.MONTH);
             int mDay = c.get(Calendar.DAY_OF_MONTH);
 
+
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                     new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                             datePicker.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            month = monthOfYear+1;
+                            day = dayOfMonth;
                         }
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
@@ -190,10 +198,10 @@ public class PostFragment extends Fragment {
             Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerFrom);
             dialog.show();
         });
-        timePickerTo.setOnClickListener(view -> {
-            Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerTo);
-            dialog.show();
-        });
+//        timePickerTo.setOnClickListener(view -> {
+//            Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerTo);
+//            dialog.show();
+//        });
 //        customizeDialog.setTitle("Filter posts");
         customizeDialog.setView(dialogView);
         customizeDialog.setPositiveButton("OK",
@@ -202,6 +210,11 @@ public class PostFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // 获取EditView中的输入内容
                         EditText destination = (EditText) dialogView.findViewById(R.id.destination);
+                        EditText duration = (EditText) dialogView.findViewById(R.id.duration);
+                        String dateStr = month + "-" + day;
+                        String dateTimeStr = month + "-" + day + " " + timePickerFrom.getText();
+                        Log.d("tag5", dateTimeStr);
+                        EventBus.getDefault().post(new FilterEvent(dateStr, dateTimeStr, destination.getText().toString()));
                     }
                 });
         customizeDialog.show();
@@ -227,8 +240,39 @@ public class PostFragment extends Fragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onFilterMessage(FilterEvent fe) {
+        if(this.postList != null) Log.d("nullTagfe" , "notNull");
+        DateFormat df = new SimpleDateFormat("MM-dd HH:mm");
+        try {
+            String targetDate = fe.date;
+            Date targetTime = df.parse(fe.dateAndTime);
+            String targetDes = fe.destination;
+            List<PostData> result = new ArrayList<>();
+            for (int i = 0; i < this.postList.size(); i++) {
+                PostData cur = this.postList.get(i);
+                String curDate = cur.time.split(" ")[0];
+                Date curDateAndTime = df.parse(cur.time);
+                int res = curDateAndTime.compareTo(targetTime);
+                if(res>0 && cur.destination.equals(targetDes) && curDate.equals(targetDate)){
+                    result.add(postList.get(i));
+                }
+            }
+            int a = result.size();
+            Log.d("tagRes" , String.valueOf(a));
+            this.postList = result;
+            int b = this.postList.size();
+            Log.d("tagResB" , String.valueOf(b));
+            myPostAdapter.notifyDataSetChanged();
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+        myPostAdapter.notifyDataSetChanged();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void onPostMsg(PostEvent postEvent) {
         PostData postData = new PostData(postEvent.distance, R.drawable.img, postEvent.name, postEvent.time, postEvent.remark, postEvent.destination, postEvent.distance + " m", true);
+        if(this.postList != null) Log.d("nullTag" , "notNull");
         this.postList.add(0,postData);
         Constant.myPost = postData;
         myPostAdapter.notifyDataSetChanged();
