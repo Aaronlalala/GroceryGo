@@ -58,12 +58,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.post_item, viewGroup, false);
 
-        Button timeButton = v.findViewById(R.id.theTime);
+        TextView time = v.findViewById(R.id.theTime);
         Drawable clock = context.getResources().getDrawable(R.drawable.clock);
         clock.setBounds(0,  0, 50, 50);
-        timeButton.setCompoundDrawables(clock, null, null, null);
+        time.setCompoundDrawables(clock, null, null, null);
 
-        Button destinationButton = v.findViewById(R.id.theDestination);
+        TextView destinationButton = v.findViewById(R.id.theDestination);
         Drawable des = context.getResources().getDrawable(R.drawable.flag);
         des.setBounds(0,  0, 45, 45);
         destinationButton.setCompoundDrawables(des, null, null, null);

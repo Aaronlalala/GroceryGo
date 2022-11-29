@@ -162,13 +162,13 @@ public class PostFragment extends Fragment {
 
         Button filterButton = rootView.findViewById(R.id.filter);
         filterButton.setOnClickListener(view -> {
-            showFilterDialog(this.postList);
+            showFilterDialog();
         });
 
         return  rootView;
     }
 
-    private void showFilterDialog(List<PostData> thePostList){
+    private void showFilterDialog(){
         AlertDialog.Builder customizeDialog = new AlertDialog.Builder(getContext());
         final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.filter_dialog,null);
         TextView datePicker = dialogView.findViewById(R.id.date_picker);
@@ -254,14 +254,18 @@ public class PostFragment extends Fragment {
                 Date curDateAndTime = df.parse(cur.time);
                 int res = curDateAndTime.compareTo(targetTime);
                 if(res>0 && cur.destination.equals(targetDes) && curDate.equals(targetDate)){
-                    result.add(postList.get(i));
+                    result.add(this.postList.get(i));
                 }
             }
             int a = result.size();
             Log.d("tagRes" , String.valueOf(a));
-            this.postList = result;
+            this.postList = new ArrayList<>();
+            for(int j=0; j< result.size(); j++){
+                postList.add(result.get(j));
+            }
             int b = this.postList.size();
             Log.d("tagResB" , String.valueOf(b));
+            myPostAdapter.postList = this.postList;
             myPostAdapter.notifyDataSetChanged();
         }catch(ParseException e){
             e.printStackTrace();
@@ -272,7 +276,6 @@ public class PostFragment extends Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onPostMsg(PostEvent postEvent) {
         PostData postData = new PostData(postEvent.distance, R.drawable.img, postEvent.name, postEvent.time, postEvent.remark, postEvent.destination, postEvent.distance + " m", true);
-        if(this.postList != null) Log.d("nullTag" , "notNull");
         this.postList.add(0,postData);
         Constant.myPost = postData;
         myPostAdapter.notifyDataSetChanged();

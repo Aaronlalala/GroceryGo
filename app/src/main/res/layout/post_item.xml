@@ -43,7 +43,7 @@
             android:layout_height="match_parent"
             >
 
-            <Button
+            <TextView
                 android:id="@+id/theTime"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
@@ -52,7 +52,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#25EABC84"
+                android:background="@drawable/ongoing_drawable1"
                 android:padding="5dp"
                 android:text="2:00 PM, Oct. 27th"
                 android:textAllCaps="false"
@@ -85,7 +85,7 @@
             android:layout_height="match_parent"
             >
 
-            <Button
+            <TextView
                 android:id="@+id/theDestination"
                 android:backgroundTint="#25EABC84"
                 android:paddingStart="8dp"
@@ -98,6 +98,7 @@
                 android:text="Costco"
                 android:textFontWeight="500"
                 android:textAllCaps="false"
+                android:background="@drawable/ongoing_drawable1"
                 android:textColor="#0C0909"
                 android:textSize="14sp" />
 
