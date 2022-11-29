@@ -88,8 +88,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         viewHolder.theRemark.setText(postList.get(position).remark);
         viewHolder.theDestination.setText(postList.get(position).destination);
         viewHolder.theDistance.setText(postList.get(position).distance);
-        @ColorInt int color = Color.parseColor("#60F1C586");
-        if(postList.get(position).isMypost && postList.get(position).name.equals("Elysia")) viewHolder.root.setBackgroundColor(color);
+//        @ColorInt int color = Color.parseColor("#60F1C586");
+        //if(postList.get(position).isMypost && postList.get(position).name.equals("Elysia")) viewHolder.root.setBackgroundColor(color);
         viewHolder.root.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

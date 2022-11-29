@@ -288,7 +288,9 @@ public class PostFragment extends Fragment {
     public void onPostMsg(PostEvent postEvent) {
         PostData postData = new PostData(postEvent.distance, R.drawable.img, postEvent.name, postEvent.time, postEvent.remark, postEvent.destination, postEvent.distance + " m", true);
         this.postList.add(0,postData);
+        myPostAdapter.postList = this.postList;
         Constant.myPost = postData;
+
         myPostAdapter.notifyDataSetChanged();
     }
 
@@ -296,7 +298,9 @@ public class PostFragment extends Fragment {
     public void onDeleteMyPostMsg(DeleteEvent de) {
         if(de.deleteMypost){
             this.postList.remove(Constant.myPost);
+            myPostAdapter.postList = this.postList;
             Constant.myPost = null;
+
             myPostAdapter.notifyDataSetChanged();
         }
     }

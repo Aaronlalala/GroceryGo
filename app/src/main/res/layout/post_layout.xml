@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F6E5D1"
     android:orientation="vertical">
 
     <ImageView
@@ -148,7 +149,7 @@
         </LinearLayout>
         <TextView
             android:text="@string/remarks"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="30dp"
             android:textSize="20dp"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -168,7 +169,7 @@
 
         <TextView
             android:id="@+id/post"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="50dp"
             android:text="@string/post"
             android:textSize="24dp"
             android:textColor="@color/black"
