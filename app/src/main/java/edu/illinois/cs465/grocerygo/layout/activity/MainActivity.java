@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -158,17 +159,21 @@ public class MainActivity extends AppCompatActivity {
     private View generateTabStyle(int position) {
         View view = LayoutInflater.from(this).inflate(R.layout.tabitem_layout, null);
         ImageView img = view.findViewById(R.id.tab_icon);
+        TextView label = view.findViewById(R.id.label);
         switch (position) {
             case BOTTOM_HOMEPAGE_BUTTON: {
                 img.setImageResource(R.drawable.home_black);
+                label.setText("Home");
                 break;
             }
             case BOTTOM_ONGOING_BUTTON: {
                 img.setImageResource(R.drawable.car_white);
+                label.setText("OnGoing");
                 break;
             }
             case BOTTOM_MAIL_BUTTON: {
                 img.setImageResource(R.drawable.envelope_white);
+                label.setText("Message");
                 break;
             }
             default: {
