@@ -5,26 +5,27 @@
     android:layout_height="175dp"
     android:background="#25EABC84"
     android:gravity="bottom"
-    android:padding="16dp"
+    android:padding="12dp"
     android:theme="@style/Theme.GroceryGo"
     >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/img"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="User Name"
+        android:text="Elysia"
         android:textColor="@color/black"/>
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="zt17@illinois.edu"
-        android:textColor="@color/black"/>
+        android:text="Elysiawolaopo@illinois.edu"
+        android:textColor="@color/black" />
 
 </LinearLayout>
