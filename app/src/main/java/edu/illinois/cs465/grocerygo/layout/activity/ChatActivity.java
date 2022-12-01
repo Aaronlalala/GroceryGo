@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import edu.illinois.cs465.grocerygo.R;
-import edu.illinois.cs465.grocerygo.layout.fragment.mail.Chat_RecyclerAdapter;
+import edu.illinois.cs465.grocerygo.layout.fragment.mail.ChatRecyclerAdapter;
 import edu.illinois.cs465.grocerygo.layout.fragment.mail.Message;
 
 public class ChatActivity extends AppCompatActivity {
 
     public RecyclerView chatRecyclerView;
-    public Chat_RecyclerAdapter chatAdapter;
+    public ChatRecyclerAdapter chatAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         chatRecyclerView = findViewById(R.id.chatRecyclerView);
-        chatAdapter = new Chat_RecyclerAdapter(this, new ArrayList<>());
+        chatAdapter = new ChatRecyclerAdapter(this, new ArrayList<>());
         chatRecyclerView.setAdapter(chatAdapter);
         chatRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 

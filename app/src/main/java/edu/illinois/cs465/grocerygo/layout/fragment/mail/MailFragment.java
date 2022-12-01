@@ -1,5 +1,6 @@
 package edu.illinois.cs465.grocerygo.layout.fragment.mail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,15 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.layout.activity.ChatActivity;
 import edu.illinois.cs465.grocerygo.layout.activity.ContactInfo;
 
-public class MailFragment extends Fragment {
+public class MailFragment extends Fragment implements MailRecyclerViewInterface{
 
     // An array list that store the object of user banner
     ArrayList<ContactInfo> contactsModels = new ArrayList<>();
     public RecyclerView mailRecyclerView;
     public RecyclerView.LayoutManager myLayoutManager;
-    public Mail_RecyclerAdapter mailAdapter;
+    public MailRecyclerAdapter mailAdapter;
 
 
     @Nullable
@@ -33,7 +35,7 @@ public class MailFragment extends Fragment {
 
         mailRecyclerView = rootView.findViewById(R.id.contactRecyclerView);
         myLayoutManager = new LinearLayoutManager(getActivity());
-        mailAdapter = new Mail_RecyclerAdapter(getContext(), this.contactsModels);
+        mailAdapter = new MailRecyclerAdapter(getContext(), this.contactsModels, this);
         mailRecyclerView.setAdapter(mailAdapter);
         mailRecyclerView.setLayoutManager(myLayoutManager);
         return rootView;
@@ -50,5 +52,11 @@ public class MailFragment extends Fragment {
             // Create ContactInfo object and store in the array.
             contactsModels.add(new ContactInfo(contactNames[i], contactImages[i]));
         }
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(getContext(), ChatActivity.class);
+        startActivity(intent);
     }
 }

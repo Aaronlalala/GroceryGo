@@ -15,27 +15,30 @@ import java.util.ArrayList;
 import edu.illinois.cs465.grocerygo.R;
 import edu.illinois.cs465.grocerygo.layout.activity.ContactInfo;
 
-public class Mail_RecyclerAdapter extends RecyclerView.Adapter<Mail_RecyclerAdapter.MyViewHolder> {
+public class MailRecyclerAdapter extends RecyclerView.Adapter<MailRecyclerAdapter.MyViewHolder> {
     Context context;
     ArrayList<ContactInfo> contactInfoArrayList;
+    private final MailRecyclerViewInterface recyclerViewInterface;
 
-    public Mail_RecyclerAdapter(Context context, ArrayList<ContactInfo> contactInfoArrayList) {
+    public MailRecyclerAdapter(Context context, ArrayList<ContactInfo> contactInfoArrayList,
+                               MailRecyclerViewInterface recyclerViewInterface) {
         this.context = context;
         this.contactInfoArrayList = contactInfoArrayList;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
 
     @NonNull
     @Override
-    public Mail_RecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MailRecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflating the layout
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.contact_recycler_view_row, parent, false);
 
-        return new Mail_RecyclerAdapter.MyViewHolder(view);
+        return new MailRecyclerAdapter.MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Mail_RecyclerAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MailRecyclerAdapter.MyViewHolder holder, int position) {
         // Assigning values to the views in the layout file based on the position of teh recycler view
         holder.contactName.setText(contactInfoArrayList.get(position).getContactName());
         holder.imageView.setImageResource(contactInfoArrayList.get(position).getContactImage());
@@ -47,7 +50,7 @@ public class Mail_RecyclerAdapter extends RecyclerView.Adapter<Mail_RecyclerAdap
         return this.contactInfoArrayList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         // Grabbing the views from contact_recycler_view_row file
         ImageView imageView;
         TextView contactName;
@@ -56,6 +59,18 @@ public class Mail_RecyclerAdapter extends RecyclerView.Adapter<Mail_RecyclerAdap
             super(itemView);
             imageView = itemView.findViewById(R.id.contact_imageView);
             contactName = itemView.findViewById(R.id.contact_textView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recyclerViewInterface != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                             recyclerViewInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
