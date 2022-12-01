@@ -142,6 +142,13 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
         }
         mapFragment.getMapAsync(this);
 
+        TextView RequestBtn = view.findViewById(R.id.join_button);
+        RequestBtn.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), ChatActivity.class);
+            intent.putExtra("button", "request");
+            startActivity(intent);
+        });
+
         TextView ContactDriverBtn = view.findViewById(R.id.contact_driver_button);
         ContactDriverBtn.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), ChatActivity.class);

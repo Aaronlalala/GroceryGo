@@ -507,7 +507,7 @@
         android:layout_height="75dp"
         android:background="@drawable/ongoing_button"
         android:gravity="center"
-        android:text="Join"
+        android:text="Request to Join"
         android:textColor="@color/white"
         android:textSize="16dp"
         android:visibility="gone"

@@ -46,6 +46,66 @@
         app:layout_constraintStart_toEndOf="@id/imageBack"
         app:layout_constraintTop_toTopOf="@id/imageBack" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/request_view"
+        android:layout_width="280dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/background_sent_message"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/request_image"
+        app:layout_constraintTop_toBottomOf="@+id/textName">
+
+        <TextView
+            android:id="@+id/request_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Could I join you?"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="accept"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/decline"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/request_text"
+
+            />
+
+        <Button
+            android:id="@+id/decline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="decline"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/accept"
+            app:layout_constraintTop_toBottomOf="@+id/request_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/request_image"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:visibility="gone"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/request_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/girl" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
@@ -59,8 +119,7 @@
         app:layout_constraintBottom_toBottomOf="@id/viewBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageBack" />
-
+        app:layout_constraintTop_toBottomOf="@+id/request_view" />
 
 
     <FrameLayout

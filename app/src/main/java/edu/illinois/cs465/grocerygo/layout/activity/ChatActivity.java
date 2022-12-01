@@ -36,13 +36,21 @@ public class ChatActivity extends AppCompatActivity {
             String inputMessageString = inputMessage.getText().toString();
             int image = R.drawable.girl;
             chatAdapter.messages.add(new Message(inputMessageString, image));
-//            contact_messages.add(new Message(inputMessageString, image));
             inputMessage.setText("");
         });
 
         backBtn.setOnClickListener(view -> {
             this.finish();
         });
+
+        // If user clicks request to join button to enter the chatting activity,
+        // automatically send a request component.
+        Bundle extras = getIntent().getExtras();
+        if (extras!= null && extras.getString("button").equals("request")) {
+            findViewById(R.id.request_view).setVisibility(View.VISIBLE);
+            findViewById(R.id.request_image).setVisibility(View.VISIBLE);
+        }
+
 
         chatRecyclerView = findViewById(R.id.chatRecyclerView);
         chatAdapter = new ChatRecyclerAdapter(this, new ArrayList<>());
