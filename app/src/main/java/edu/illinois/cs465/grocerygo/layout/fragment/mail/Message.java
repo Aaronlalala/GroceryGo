@@ -1,4 +1,4 @@
-package edu.illinois.cs465.grocerygo.layout.activity;
+package edu.illinois.cs465.grocerygo.layout.fragment.mail;
 
 public class Message {
     private String message;
