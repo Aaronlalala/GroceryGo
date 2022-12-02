@@ -319,7 +319,6 @@
             <ImageView
                 android:id="@+id/numberItem"
                 android:layout_width="40dp"
-
                 android:layout_height="40dp"
                 android:layout_below="@+id/clockItem"
                 android:layout_alignLeft="@+id/clockItem"

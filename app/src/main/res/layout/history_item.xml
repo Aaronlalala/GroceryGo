@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/historyItemRoot"
+    android:background="@color/secondary"
+    android:layout_marginTop="13dp"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="76dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/history_ProfilePic"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/girl" />
+
+        <TextView
+            android:id="@+id/history_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/history_ProfilePic"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Lucy"
+            android:textAllCaps="false"
+            android:textColor="#0C0909"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="190dp"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/history_time"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/ongoing_drawable1"
+            android:padding="5dp"
+            android:text="2:00 PM, Oct. 27th"
+            android:textAllCaps="false"
+            android:textColor="#0C0909"
+            android:textSize="16sp" />
+
+        <RatingBar
+            android:id="@+id/history_rating_bar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="-54dp"
+            android:layout_marginTop="58dp"
+            android:isIndicator="true"
+            android:numStars="4"
+            android:rating="5"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:stepSize="0.5" />
+
+        <TextView
+            android:id="@+id/go_to_rate"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textSize="16dp"
+            android:text="@string/driver_wants_your_rate"
+            android:textColor="#ee6055"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="10dp"
+        android:background="#303F9F" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/history_destination"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:paddingEnd="8dp"
+            android:padding="5dp"
+            android:layout_alignParentLeft = "true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Costco"
+            android:textFontWeight="500"
+            android:textAllCaps="false"
+            android:background="@drawable/post_item_destination"
+            android:textColor="#0C0909"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="24dp"
+            android:textStyle="bold"
+            android:text="Tips: 0.5$"
+            android:textAllCaps="false"
+            android:textColor="#0C0909"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

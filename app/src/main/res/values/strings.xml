@@ -50,8 +50,8 @@
     <string name="post">Post</string>
     <string name="destination">Destination:</string>
     <string name="edit_destination">enter your destination</string>
-    <string name="from">Time From:</string>
-    <string name="to">To:</string>
+    <string name="from">Time Starts:</string>
+    <string name="to">Time Ends:</string>
     <string name="user_name">Ultra Bracelet</string>
     <string name="leave_tips">Finish Rating</string>
     <string name="add_a_note">Add a Note</string>
@@ -60,6 +60,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="you_can_leave_your_tips">You can Leave Your Tips</string>
+    <string name="my_history_rides">My History Rides</string>
+    <string name="driver_wants_your_rate">Give a Rate to Driver!</string>
 
 
     <string-array name="contact_name">
