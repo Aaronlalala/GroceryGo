@@ -235,18 +235,23 @@ public class PostFragment extends Fragment {
     private void initDataset() {
             this.postList = new ArrayList<>();
             //PostData pd2 = new PostData(R.drawable.girl, "12:12 pm Oct. 2rd", "Plan to go tomorrow", "Costco", " 5.9 m");
-            PostData pd2 = new PostData(5.3, R.drawable.man, "Jake", "10-11 11:10", "Plan to go tomorrow", "Costco", " 5.3 m", false);
+            PostData pd2 = new PostData(5.3, R.drawable.man, "Jake", "10-11 16:10", "Plan to go tomorrow", "Costco", " 5.3 m", false);
             PostData pd = new PostData(3.3, R.drawable.girl, "Iris", "10-12 13:12", "I want somebody to join me", "Walmart", " 3.3 m", false);
             PostData pd3 = new PostData(1.2, R.drawable.man, "John", "11-20 13:12", "Anyone want to join?", "Walmart", " 1.2 m", false);
             PostData pd4 = new PostData(6.0, R.drawable.girl, "Lucy", "10-12 15:12", "I prefer tips > <", "Walmart", " 6.0 m", false);
             PostData pd5 = new PostData(4.5, R.drawable.man, "Oven", "12-08 13:12", "Hang out with me!", "Walmart", " 4.5 m",false);
+            PostData pd6 = new PostData(3.5, R.drawable.man, "Jake", "11-18 09:12", "Prepare to buy something for Thanksgiving", "Walmart", " 3.5 m",false);
+            PostData pd7 = new PostData(2.5, R.drawable.girl, "Annie", "10-18 19:20", "Want to buy things for hot pot!", "Costco", " 2.5 m",false);
 
             this.postList.add(pd2);
             this.postList.add(pd);
             this.postList.add(pd3);
             this.postList.add(pd4);
             this.postList.add(pd5);
-            if(Constant.myPost != null){
+            this.postList.add(pd6);
+            this.postList.add(pd7);
+
+        if(Constant.myPost != null){
                 this.postList.add(Constant.myPost);
             }
     }
