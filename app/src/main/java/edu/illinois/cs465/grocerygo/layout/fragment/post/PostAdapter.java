@@ -2,6 +2,7 @@ package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -56,14 +58,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         View v = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.post_item, viewGroup, false);
 
-        Button timeButton = v.findViewById(R.id.theTime);
+        TextView time = v.findViewById(R.id.theTime);
         Drawable clock = context.getResources().getDrawable(R.drawable.clock);
-        clock.setBounds(0,  0, 50, 50);
-        timeButton.setCompoundDrawables(clock, null, null, null);
+        clock.setBounds(-20,  0, 50, 50);
+        time.setCompoundDrawables(clock, null, null, null);
 
-        Button destinationButton = v.findViewById(R.id.theDestination);
+        TextView destinationButton = v.findViewById(R.id.theDestination);
         Drawable des = context.getResources().getDrawable(R.drawable.flag);
-        des.setBounds(0,  0, 45, 45);
+        des.setBounds(-10,  0, 45, 45);
         destinationButton.setCompoundDrawables(des, null, null, null);
 
         TextView distanceText = v.findViewById(R.id.theDistance);
@@ -86,7 +88,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         viewHolder.theRemark.setText(postList.get(position).remark);
         viewHolder.theDestination.setText(postList.get(position).destination);
         viewHolder.theDistance.setText(postList.get(position).distance);
-
+//        @ColorInt int color = Color.parseColor("#60F1C586");
+        //if(postList.get(position).isMypost && postList.get(position).name.equals("Elysia")) viewHolder.root.setBackgroundColor(color);
         viewHolder.root.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

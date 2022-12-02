@@ -3,10 +3,10 @@
     <item android:state_pressed="false">
         <shape android:shape="oval">
             <solid
-                android:color="@color/BGInput"/>
+                android:color="#EEC391"/>
             <size
-                android:width="72dp"
-                android:height="72dp"/>
+                android:width="90dp"
+                android:height="90dp"/>
         </shape>
     </item>
 
@@ -15,8 +15,8 @@
             <solid
                 android:color="@color/dan_black"/>
             <size
-                android:width="72dp"
-                android:height="72dp"/>
+                android:width="90dp"
+                android:height="90dp"/>
         </shape>
     </item>
 </selector>

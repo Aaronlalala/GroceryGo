@@ -1,5 +1,7 @@
 package edu.illinois.cs465.grocerygo.layout.fragment.post;
 
+import java.util.Date;
+
 public class PostData {
     int imageId;
     Double distanceDouble;
@@ -8,8 +10,9 @@ public class PostData {
     String remark;
     String destination;
     String distance;
+    boolean isMypost;
 
-    PostData( Double distanceDouble, int imgId, String name, String time, String remark, String destination, String distance)
+    PostData( Double distanceDouble, int imgId, String name, String time, String remark, String destination, String distance, boolean isMypost)
     {
         this.distanceDouble = distanceDouble;
         this.imageId = imgId;
@@ -18,5 +21,6 @@ public class PostData {
         this.remark = remark;
         this.destination = destination;
         this.distance = distance;
+        this.isMypost = isMypost;
     }
 }

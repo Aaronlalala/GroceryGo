@@ -5,4 +5,9 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+    <!--RatingBar颜色-->
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/dan_black</item>
+        <item name="colorControlActivated">@color/rating_color</item>
+    </style>
 </resources>

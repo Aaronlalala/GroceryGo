@@ -10,4 +10,12 @@
         android:id="@+id/tab_icon"
         android:layout_width="28dp"
         android:layout_height="28dp"/>
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:textSize="12dp"/>
 </LinearLayout>

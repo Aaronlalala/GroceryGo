@@ -17,9 +17,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder{
     public LinearLayout root;
     public ImageView theProfilePic;
     public TextView theName;
-    public Button theTime;
+    public TextView theTime;
     public TextView theRemark;
-    public Button theDestination;
+    public TextView theDestination;
     public TextView theDistance;
     public View view;
 
@@ -29,9 +29,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder{
         root = (LinearLayout)v.findViewById(R.id.postItemRoot);
         theProfilePic = (ImageView)v.findViewById(R.id.theProfilePic);
         theName = (TextView)v.findViewById(R.id.theName);
-        theTime = (Button) v.findViewById(R.id.theTime);
+        theTime = (TextView) v.findViewById(R.id.theTime);
         theRemark = (TextView)v.findViewById(R.id.theRemark);
-        theDestination = (Button)v.findViewById(R.id.theDestination);
+        theDestination = (TextView)v.findViewById(R.id.theDestination);
         theDistance = (TextView)v.findViewById(R.id.theDistance);
         view  = v;
 //        v.setOnClickListener(new View.OnClickListener() {

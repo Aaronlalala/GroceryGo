@@ -1,53 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6E5D1"
+
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/btn_dismiss"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/btn_dismiss"/>
+
     <LinearLayout
         android:layout_marginTop="50dp"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter posts"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            />
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp">
             <TextView
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:layout_gravity="center"
-                android:text="@string/i_want_to_post"
-                android:layout_width="wrap_content"
+                android:text="@string/destination"
+                android:layout_width="112dp"
                 android:layout_height="wrap_content"/>
-            <RadioGroup
+            <EditText
+                android:id="@+id/destination"
                 android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:textStyle="bold"
-                    android:text="@string/share"
-                    android:textSize="18dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <RadioButton
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:text="@string/request"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </RadioGroup>
+                android:layout_width="200dp"
+                android:layout_gravity="center"
+                android:background="@color/BGInput"
+                android:layout_height="36dp"
+                android:hint="@string/edit_destination" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,7 +73,6 @@
                 android:layout_height="36dp"/>
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +84,7 @@
                 android:textSize="20dp"
                 android:gravity="right"
                 android:layout_gravity="center"
-                android:text="@string/from"
+                android:text="Start After"
                 android:layout_width="112dp"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -105,77 +102,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp">
             <TextView
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20dp"
                 android:gravity="right"
                 android:layout_gravity="center"
-                android:text="@string/to"
+                android:text="Duration"
                 android:layout_width="112dp"
                 android:layout_height="wrap_content"/>
-            <TextView
-                android:background="@color/BGInput"
-                android:id="@+id/time_picker_to"
-                android:gravity="center"
-                android:textSize="20dp"
-                android:textColor="@color/black"
+            <EditText
+                android:id="@+id/duration"
                 android:layout_marginLeft="10dp"
                 android:layout_width="200dp"
-                android:layout_height="36dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp">
-            <TextView
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_gravity="center"
-                android:text="@string/destination"
-                android:layout_width="112dp"
-                android:layout_height="wrap_content"/>
-            <AutoCompleteTextView
-                android:id="@+id/destination"
-                android:layout_marginLeft="10dp"
-                android:layout_width="250dp"
                 android:layout_gravity="center"
                 android:background="@color/BGInput"
                 android:layout_height="36dp"
-                android:hint="@string/edit_destination"/>
+                android:hint="enter how many hours" />
+<!--            <TextView-->
+<!--                android:background="@color/BGInput"-->
+<!--                android:id="@+id/time_picker_to"-->
+<!--                android:gravity="center"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="36dp"/>-->
         </LinearLayout>
-        <TextView
-            android:text="@string/remarks"
-            android:layout_marginTop="30dp"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/remark"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_width="match_parent"
-            android:background="@drawable/enter_background"
-            android:hint="@string/please_enter_your_remarks"
-            android:inputType="textMultiLine"
-            android:gravity="top"
-            android:layout_height="200dp"/>
 
-        <TextView
-            android:id="@+id/post"
-            android:layout_marginTop="50dp"
-            android:text="@string/post"
-            android:textSize="24dp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:background="@drawable/bg_circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/clear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="70dp"
+                android:backgroundTint="#EFD9C0"
+                android:text="Clear"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ok"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/ok"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="OK"
+                android:backgroundTint="#EFD9C0"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/clear" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 </LinearLayout>
