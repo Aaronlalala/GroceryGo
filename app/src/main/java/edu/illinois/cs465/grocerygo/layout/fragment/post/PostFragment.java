@@ -196,6 +196,7 @@ public class PostFragment extends Fragment {
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         });
+        
         timePickerFrom.setOnClickListener(view -> {
             Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerFrom);
             dialog.show();
@@ -237,7 +238,7 @@ public class PostFragment extends Fragment {
             PostData pd2 = new PostData(5.3, R.drawable.man, "Jake", "10-11 11:10", "Plan to go tomorrow", "Costco", " 5.3 m", false);
             PostData pd = new PostData(3.3, R.drawable.girl, "Iris", "10-12 13:12", "I want somebody to join me", "Walmart", " 3.3 m", false);
             PostData pd3 = new PostData(1.2, R.drawable.man, "John", "11-20 13:12", "Anyone want to join?", "Walmart", " 1.2 m", false);
-            PostData pd4 = new PostData(6.0, R.drawable.girl, "Lucy", "09-25 13:12", "I prefer tips > <", "Walmart", " 6.0 m", false);
+            PostData pd4 = new PostData(6.0, R.drawable.girl, "Lucy", "10-12 15:12", "I prefer tips > <", "Walmart", " 6.0 m", false);
             PostData pd5 = new PostData(4.5, R.drawable.man, "Oven", "12-08 13:12", "Hang out with me!", "Walmart", " 4.5 m",false);
 
             this.postList.add(pd2);
