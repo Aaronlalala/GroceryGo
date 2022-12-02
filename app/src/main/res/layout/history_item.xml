@@ -64,12 +64,26 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="-54dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="58dp"
+            android:isIndicator="true"
             android:numStars="4"
             android:rating="5"
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:stepSize="0.5" />
+
+        <TextView
+            android:id="@+id/go_to_rate"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textSize="16dp"
+            android:text="@string/driver_wants_your_rate"
+            android:textColor="#ee6055"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -109,7 +123,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="5dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="24dp"
+            android:textStyle="bold"
             android:text="Tips: 0.5$"
             android:textAllCaps="false"
             android:textColor="#0C0909"

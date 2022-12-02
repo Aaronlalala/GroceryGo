@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,13 +40,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull HistoryAdapter.MyViewHolder holder, int position) {
-        holder.theProfilePic.setImageResource(historyData.get(position).imageId);
-        holder.name.setText(historyData.get(position).name);
-        holder.time.setText(historyData.get(position).time);
-        // FIXME: Set default number of stars
-//        holder.ratingBar.setDefaultStars(historyData.get(position).stars);
-        holder.tips.setText(historyData.get(position).tips);
-        holder.destination.setText(historyData.get(position).destination);
+        holder.bindView(historyData.get(position));
 
     }
 
@@ -59,10 +54,29 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
         public ImageView theProfilePic;
         public TextView name;
         public TextView time;
-        public View ratingBar;
+        public RatingBar ratingBar;
         public TextView destination;
         public TextView tips;
+        private TextView rateHint;
         public View view;
+        private boolean isRated = false;
+
+        public void bindView(HistoryData historyData) {
+            theProfilePic.setImageResource(historyData.imageId);
+            name.setText(historyData.name);
+            time.setText(historyData.time);
+            isRated = historyData.isRated;
+            if (historyData.isRated) {
+                ratingBar.setRating((float) historyData.stars);
+                tips.setText("tips: $" + historyData.tips);
+            } else {
+                ratingBar.setVisibility(View.GONE);
+                rateHint.setVisibility(View.VISIBLE);
+                rateHint.setTextColor(0xFFFE2C55);
+                tips.setText("Leave tips");
+            }
+            destination.setText(historyData.destination);
+        }
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,8 +85,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
             theProfilePic = itemView.findViewById(R.id.history_ProfilePic);
             name = itemView.findViewById(R.id.history_name);
             time = itemView.findViewById(R.id.history_time);
+            rateHint = itemView.findViewById(R.id.go_to_rate);
             destination = itemView.findViewById(R.id.history_destination);
-            // FIXME: need to justify number of stars
             ratingBar = itemView.findViewById(R.id.history_rating_bar);
             tips = itemView.findViewById(R.id.tips);
 
@@ -83,7 +97,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (recyclerViewInterface != null) {
+                    if (recyclerViewInterface != null && !isRated) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             recyclerViewInterface.onItemClick(position);

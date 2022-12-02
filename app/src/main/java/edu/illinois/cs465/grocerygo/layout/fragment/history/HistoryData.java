@@ -8,7 +8,7 @@ public class HistoryData {
     String destination;
     // FIXME: delete if this member is useless
     boolean isRated;
-    int stars;
+    float stars;
 
     public HistoryData(int imageId, String name, String time, String destination) {
         this.imageId = imageId;
@@ -18,13 +18,13 @@ public class HistoryData {
         this.isRated = false;
     }
 
-    public HistoryData(int imageId, String tips, String name, String time, String destination, int stars) {
+    public HistoryData(int imageId, String tips, String name, String time, String destination, float stars, boolean isRated) {
         this.imageId = imageId;
         this.tips = tips;
         this.name = name;
         this.time = time;
         this.destination = destination;
-        this.isRated = true;
+        this.isRated = isRated;
         this.stars = stars;
     }
 }

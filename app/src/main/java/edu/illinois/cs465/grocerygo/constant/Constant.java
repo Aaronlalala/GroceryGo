@@ -12,5 +12,6 @@ public class Constant {
     public static final String POST_FRAGMENT_TAG = "homepage_fragment_tag";
     public static final String ONGOING_FRAGMENT_TAG = "ongoing_fragment_tag";
     public static final String MAIL_FRAGMENT_TAG = "mail_fragment_tag";
-
+    public static final String UNRATED = "Unrated";
+    public static final int NO_STARS = -1;
 }

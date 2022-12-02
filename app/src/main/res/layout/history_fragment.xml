@@ -5,11 +5,17 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <TextView
+        android:layout_marginTop="16dp"
+        android:text="@string/my_history_rides"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
-    </LinearLayout>
+    </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/historyRecyclerView"

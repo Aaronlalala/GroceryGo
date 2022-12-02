@@ -120,6 +120,8 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
         TextView rateBtn = getView().findViewById(R.id.rate_driver_button);
         TextView plateNumber = getView().findViewById(R.id.textView);
         ImageView deleteBtn = getView().findViewById(R.id.delete_button);
+        ImageView numberItem = view.findViewById(R.id.numberItem);
+        TextView number = view.findViewById(R.id.number);
         if (this.activity == null) {
             contactBtn.setVisibility(View.VISIBLE);
         } else if (this.activity.equals("post")) {
@@ -131,6 +133,9 @@ public class OngoingFragment extends Fragment implements OnMapReadyCallback {
             rateBtn.setVisibility(View.VISIBLE);
         } else if(this.activity.equals("myPost")){
             deleteBtn.setVisibility(View.VISIBLE);
+            plateNumber.setVisibility(View.INVISIBLE);
+            numberItem.setVisibility(View.INVISIBLE);
+            number.setVisibility(View.INVISIBLE);
         }
 
         SupportMapFragment mapFragment= (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
