@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import edu.illinois.cs465.grocerygo.R;
+import edu.illinois.cs465.grocerygo.layout.fragment.history.HistoryFragment;
 import edu.illinois.cs465.grocerygo.layout.fragment.post.PostFragment;
 
 public class HistoryActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class HistoryActivity extends AppCompatActivity {
         ImageView dismissBtn = findViewById(R.id.btn_dismiss);
         dismissBtn.setOnClickListener(view -> this.finish());
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        Fragment fragment = new PostFragment("true");
+        Fragment fragment = new HistoryFragment();
         ft.add(R.id.container, fragment);
         ft.commit();
     }
