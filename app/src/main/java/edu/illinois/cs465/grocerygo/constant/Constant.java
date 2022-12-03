@@ -1,9 +1,12 @@
 package edu.illinois.cs465.grocerygo.constant;
 
+import java.util.List;
+
 import edu.illinois.cs465.grocerygo.layout.fragment.post.PostData;
 
 public class Constant {
     public static PostData myPost;
+    public static List<PostData> postList;
 
     public static final int BOTTOM_HOMEPAGE_BUTTON = 0;
     public static final int BOTTOM_ONGOING_BUTTON = 1;

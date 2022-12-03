@@ -57,8 +57,12 @@ public class PostFragment extends Fragment {
     String[] sortOptions = { "Sort by time", "Sort by distance"};
     private String activityType;
     private PostData myPost;
-    public int month;
+    public int month = 0;
     public int day;
+    public String filterDestination = "";
+    public String filterDate = "";
+    public String filterTime = "";
+    public String filterDuration = "";
 
     public PostFragment() {};
     public PostFragment(String activityType) {
@@ -175,6 +179,13 @@ public class PostFragment extends Fragment {
         final View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.filter_dialog,null);
         TextView datePicker = dialogView.findViewById(R.id.date_picker);
         TextView timePickerFrom = dialogView.findViewById(R.id.time_picker_from);
+        EditText des = (EditText) dialogView.findViewById(R.id.destination);
+        EditText dur = (EditText) dialogView.findViewById(R.id.duration);
+
+        if(!filterDestination.isEmpty()) des.setText(filterDestination);
+        if(!filterDate.isEmpty())datePicker.setText(filterDate);
+        if(!filterTime.isEmpty())timePickerFrom.setText(filterTime);
+        if(!filterDuration.isEmpty())dur.setText(filterDuration);
         //TextView timePickerTo = dialogView.findViewById(R.id.time_picker_to);
 
         datePicker.setOnClickListener(view -> {
@@ -189,7 +200,7 @@ public class PostFragment extends Fragment {
                     new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                            datePicker.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            datePicker.setText( (monthOfYear + 1)+ "-" + dayOfMonth + "-" + year);
                             month = monthOfYear+1;
                             day = dayOfMonth;
                         }
@@ -201,11 +212,6 @@ public class PostFragment extends Fragment {
             Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerFrom);
             dialog.show();
         });
-//        timePickerTo.setOnClickListener(view -> {
-//            Dialog dialog = new TimePickerDialog(getContext(), R.style.myDialog, timePickerTo);
-//            dialog.show();
-//        });
-//        customizeDialog.setTitle("Filter posts");
 
 
         Button clearBtn = dialogView.findViewById(R.id.clear);
@@ -214,8 +220,26 @@ public class PostFragment extends Fragment {
         OKBtn.setOnClickListener(view -> {
             EditText destination = (EditText) dialogView.findViewById(R.id.destination);
             EditText duration = (EditText) dialogView.findViewById(R.id.duration);
-            String dateStr = month + "-" + day;
-            String dateTimeStr = month + "-" + day + " " + timePickerFrom.getText();
+            filterDestination = destination.getText().toString();
+            filterDate = datePicker.getText().toString();
+            filterTime = timePickerFrom.getText().toString();
+            filterDuration = duration.getText().toString();
+            String dateStr = "";
+            String dateTimeStr = "";
+            if(!timePickerFrom.getText().toString().isEmpty()){
+                if(month != 0){
+                    dateStr = month + "-" + day;
+                    dateTimeStr = month + "-" + day + " " + timePickerFrom.getText();
+                }
+                else{
+                    dateTimeStr = "10-10 " + timePickerFrom.getText();
+                }
+            }
+            else if(month != 0){
+                dateStr = month + "-" + day;
+            }
+
+
             Log.d("tag5", dateTimeStr);
             EventBus.getDefault().post(new FilterEvent(dateStr, dateTimeStr, destination.getText().toString()));
             d.dismiss();
@@ -254,39 +278,103 @@ public class PostFragment extends Fragment {
         if(Constant.myPost != null){
                 this.postList.add(Constant.myPost);
             }
+        Constant.postList = this.postList;
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onFilterMessage(FilterEvent fe) {
-        if(this.postList != null) Log.d("nullTagfe" , "notNull");
         DateFormat df = new SimpleDateFormat("MM-dd HH:mm");
-        try {
+        List<PostData> result = new ArrayList<>();
+        if(!fe.dateAndTime.isEmpty()){
+            try {
+                String targetDate = fe.date;
+                Date targetTime = df.parse(fe.dateAndTime);
+                String targetDes = fe.destination;
+
+                if(!targetDate.isEmpty() && !targetDes.isEmpty()){
+                    for (int i = 0; i < this.postList.size(); i++) {
+                        PostData cur = this.postList.get(i);
+                        String curDate = cur.time.split(" ")[0];
+                        Date curDateAndTime = df.parse(cur.time);
+                        int res = curDateAndTime.compareTo(targetTime);
+                        if(res>0 && cur.destination.equals(targetDes) && curDate.equals(targetDate)){
+                            result.add(this.postList.get(i));
+                        }
+                    }
+                }
+                else if(targetDate.isEmpty() && !targetDes.isEmpty()){
+                    for (int i = 0; i < this.postList.size(); i++) {
+                        PostData cur = this.postList.get(i);
+                        String curDate = cur.time.split(" ")[0];
+                        Date curDateAndTime = df.parse(cur.time);
+                        int res = curDateAndTime.compareTo(targetTime);
+                        if(res>0 && cur.destination.equals(targetDes)){
+                            result.add(this.postList.get(i));
+                        }
+                    }
+                }
+                else if(!targetDate.isEmpty() && targetDes.isEmpty()){
+                    for (int i = 0; i < this.postList.size(); i++) {
+                        PostData cur = this.postList.get(i);
+                        String curDate = cur.time.split(" ")[0];
+                        Date curDateAndTime = df.parse(cur.time);
+                        int res = curDateAndTime.compareTo(targetTime);
+                        if(res>0 && curDate.equals(targetDate)){
+                            result.add(this.postList.get(i));
+                        }
+                    }
+                }
+
+            }catch(ParseException e){
+                e.printStackTrace();
+            }
+        }
+        else{
             String targetDate = fe.date;
-            Date targetTime = df.parse(fe.dateAndTime);
             String targetDes = fe.destination;
-            List<PostData> result = new ArrayList<>();
-            for (int i = 0; i < this.postList.size(); i++) {
-                PostData cur = this.postList.get(i);
-                String curDate = cur.time.split(" ")[0];
-                Date curDateAndTime = df.parse(cur.time);
-                int res = curDateAndTime.compareTo(targetTime);
-                if(res>0 && cur.destination.equals(targetDes) && curDate.equals(targetDate)){
-                    result.add(this.postList.get(i));
+            if(!targetDate.isEmpty() && !targetDes.isEmpty()){
+                for (int i = 0; i < this.postList.size(); i++) {
+                    PostData cur = this.postList.get(i);
+                    String curDate = cur.time.split(" ")[0];
+                    if(cur.destination.equals(targetDes) && curDate.equals(targetDate)){
+                        result.add(this.postList.get(i));
+                    }
                 }
             }
-            int a = result.size();
-            Log.d("tagRes" , String.valueOf(a));
-            this.postList = new ArrayList<>();
-            for(int j=0; j< result.size(); j++){
-                postList.add(result.get(j));
+            else if(!targetDate.isEmpty() && targetDes.isEmpty()){
+                for (int i = 0; i < this.postList.size(); i++) {
+                    PostData cur = this.postList.get(i);
+                    String curDate = cur.time.split(" ")[0];
+                    if(curDate.equals(targetDate)){
+                        result.add(this.postList.get(i));
+                    }
+                }
             }
-            int b = this.postList.size();
-            Log.d("tagResB" , String.valueOf(b));
-            myPostAdapter.postList = this.postList;
-            myPostAdapter.notifyDataSetChanged();
-        }catch(ParseException e){
-            e.printStackTrace();
+            else if(targetDate.isEmpty() && !targetDes.isEmpty()){
+                for (int i = 0; i < this.postList.size(); i++) {
+                    PostData cur = this.postList.get(i);
+                    String curDate = cur.time.split(" ")[0];
+                    if(cur.destination.equals(targetDes)){
+                        result.add(this.postList.get(i));
+                    }
+                }
+            }
         }
+        if(fe.destination.isEmpty() && fe.dateAndTime.isEmpty() && fe.date.isEmpty()){
+            this.postList = Constant.postList;
+            myPostAdapter.postList = Constant.postList;
+            myPostAdapter.notifyDataSetChanged();
+            return;
+        }
+        int a = result.size();
+        Log.d("tagRes" , String.valueOf(a));
+        this.postList = new ArrayList<>();
+        for(int j=0; j< result.size(); j++){
+            postList.add(result.get(j));
+        }
+        int b = this.postList.size();
+        Log.d("tagResB" , String.valueOf(b));
+        myPostAdapter.postList = this.postList;
         myPostAdapter.notifyDataSetChanged();
     }
 

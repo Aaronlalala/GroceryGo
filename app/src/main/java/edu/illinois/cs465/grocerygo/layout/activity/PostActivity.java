@@ -27,6 +27,7 @@ import edu.illinois.cs465.grocerygo.layout.dialog.TimePickerDialog;
 
 public class PostActivity extends AbstractActivity {
     public String date;
+    public String theDate;
     private String[] items={
             "Costco 2020 N Neil St",
             "Kohl's 109 Convenience Center Rd",
@@ -77,7 +78,7 @@ public class PostActivity extends AbstractActivity {
             } else if (check(fromTime, toTime, today) && !destination.equals("")) {
                 String name = dest.getText().toString().split(" ")[0];
                 EventBus.getDefault().post(new PostEvent(1.1, "Elysia",
-                        date + " " + fromTime,
+                        theDate + " " + fromTime,
                         remark.getText().toString(), name));
                 this.finish();
             } else if(destination.equals("")) {
@@ -100,6 +101,7 @@ public class PostActivity extends AbstractActivity {
                         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                             datePicker.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                             date = year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                            theDate = (monthOfYear + 1) + "-" + dayOfMonth;
                         }
                     }, mYear, mMonth, mDay);
 
