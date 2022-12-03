@@ -18,6 +18,9 @@ import androidx.annotation.Nullable;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -60,7 +63,7 @@ public class PostActivity extends AbstractActivity {
         postBtn.setOnClickListener(view -> {
             String fromTime = (String) timePickerFrom.getText();
             String toTime = (String) timePickerTo.getText();
-            String today = (String) datePicker.getText();
+            String date = (String) datePicker.getText();
             String destination = dest.getText().toString();
             int checked = -1;
             int count = radioGroup.getChildCount();
@@ -75,16 +78,22 @@ public class PostActivity extends AbstractActivity {
                 Toast.makeText(this, "please select your post type", Toast.LENGTH_SHORT).show();
             } else if (checked == 0) {
                 Toast.makeText(this, "You have not verified as a Driver!", Toast.LENGTH_SHORT).show();
-            } else if (check(fromTime, toTime, today) && !destination.equals("")) {
-                String name = dest.getText().toString().split(" ")[0];
-                EventBus.getDefault().post(new PostEvent(1.1, "Elysia",
-                        theDate + " " + fromTime,
-                        remark.getText().toString(), name));
-                this.finish();
-            } else if(destination.equals("")) {
-                Toast.makeText(this, "please input your destination!", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, R.string.time_toast, Toast.LENGTH_SHORT).show();
+                try {
+                    if (check(fromTime, toTime, theDate) && !destination.equals("")) {
+                        String name = dest.getText().toString().split(" ")[0];
+                        EventBus.getDefault().post(new PostEvent(1.1, "Elysia",
+                                theDate + " " + fromTime,
+                                remark.getText().toString(), name));
+                        this.finish();
+                    } else if(destination.equals("")) {
+                        Toast.makeText(this, "please input your destination!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, R.string.time_toast, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -117,28 +126,24 @@ public class PostActivity extends AbstractActivity {
         });
     }
 
-    private boolean check(String from, String to, String today) {
-        if (from == null || to == null || from.equals("") || to.equals("") || today.equals("")) {
+    private boolean check(String from, String to, String date) throws ParseException {
+        if (from == null || to == null || from.equals("") || to.equals("") || date.equals("")) {
             return false;
         }
-        String[] fromTime = from.split(":");
-        String[] toTime = to.split(":");
-        int t1 = Integer.parseInt(fromTime[0]) * 60 + Integer.parseInt(fromTime[1]);
-        int t2 = Integer.parseInt(toTime[0]) * 60 + Integer.parseInt(toTime[1]);
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        int curTime = calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE);
-        int month = Integer.parseInt(this.date.split("-")[1]);
-        int day = Integer.parseInt(this.date.split("-")[2]);
-        int year = Integer.parseInt(this.date.split("-")[0]);
-        if (year > calendar.get(Calendar.YEAR)) {
-            return true;
-        }
-        if (year < calendar.get(Calendar.YEAR) || month <= calendar.get(Calendar.MONTH)
-                || (month - 1 == calendar.get(Calendar.MONTH) && day < calendar.get(Calendar.DAY_OF_MONTH))) {
-            return false;
-        }
-        return t1 < t2 && t2 > curTime;
+        DateFormat df = new SimpleDateFormat("MM-dd HH:mm");
+        //current date and time
+        Date cur = new Date();
+        Date curDateTime = df.parse(df.format(cur));
+        String fromStr = date + " " + from;
+        String toStr = date + " " + to;
+        Date fromDateTime = df.parse(fromStr);
+        Date toDateTime = df.parse(toStr);
+
+        int res1 = toDateTime.compareTo(fromDateTime);
+        int res2 = toDateTime.compareTo(curDateTime);
+        int res3 = fromDateTime.compareTo(curDateTime);
+
+        return res1 > 0 && res2 > 0 && res3 > 0;
+        
     }
 }
