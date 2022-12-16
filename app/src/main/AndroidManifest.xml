@@ -16,9 +16,6 @@
         android:theme="@style/Theme.GroceryGo"
         tools:targetApi="31">
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDl1h_SmtMmTvQDHKUgj8ZR1LivV4ubR0U" />
-        <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 <!--        Replace action bar with tool bar in main activity-->
